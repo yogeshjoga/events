@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IRelativeService {
     List<Relative> getAllRelatives();
+    Relative saveRelative(Relative relative);
 }

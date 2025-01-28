@@ -15,9 +15,11 @@ import org.springframework.stereotype.Component;
 public class Dto {
     private String name;
     private String address;
-    private Double gold;
-    private Double silver;
-    private Double amount;
+    private double gold;
+    private double silver;
+    private double amount;
     private String objects;
+
+    // code for this
     private TypeOfPresentation typeOfPresentation;
 }
