@@ -3,9 +3,6 @@
 * Tables
 * Design Sample API for save relaitive deatils
 
-
-
-
 # ToDo
 
 * [ ]  Schema Design
@@ -23,12 +20,16 @@
 * [ ]  My Event management
   * [ ]  Total worth
 
-
-# Schema Design 
-
-
-
-
-
+# Schema Design
 
 # Class design
+
+
+
+
+
+Log trace print thick bold
+
+```
+log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
+```

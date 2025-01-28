@@ -11,7 +11,10 @@ import java.util.List;
 @Getter
 @Entity(name = "relative")
 public class Relative extends BaseModel {
-    private String name;
+    private String firstName;
+    private String lastName;
+    private String city;
+   // private String name;
     private String address;
     private String phone; // null
 

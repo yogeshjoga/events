@@ -5,15 +5,14 @@ import org.api.events.models.Presentation;
 import org.api.events.models.Relative;
 import org.api.events.service.presentationservice.IPresentationService;
 import org.api.events.service.relativeservice.IRelativeService;
-import org.api.events.utils.DtoMapper;
-import org.api.events.utils.RelativeUtils;
+import org.api.events.utils.IDtoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173/")
@@ -29,7 +28,7 @@ public class Controller {
     private IPresentationService presentationService;
 
     @Autowired
-    private DtoMapper dtoMapper;
+    private IDtoMapper dtoMapper;
 
     @GetMapping("/getall")
     public ResponseEntity<List<Relative>> getAll() {
@@ -38,15 +37,19 @@ public class Controller {
 
     @GetMapping("/get")
     public ResponseEntity<String> testing(){
+
+        log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
         return ResponseEntity.status(200).body("Hello this is for Testing the api application");
     }
 
-    @PostMapping("add")
+    @PostMapping("presentation")
     public ResponseEntity<Dto> creatingRec(@RequestBody Dto dto){
-       Relative relative = dtoMapper.dtoToRelative(dto);
+        Relative relative = dtoMapper.dtoToRelative(dto);
         Presentation presentation = dtoMapper.dtoToPresentation(dto);
         // validate is pending
         relativeService.saveRelative(relative);
+        // adding the relative
+        presentation.setRelative(relative);
         presentationService.savePresentation(presentation);
         // pending
         return ResponseEntity.status(201).body(dto);
