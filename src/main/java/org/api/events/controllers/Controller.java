@@ -3,6 +3,7 @@ package org.api.events.controllers;
 import org.api.events.dto.Dto;
 import org.api.events.models.Presentation;
 import org.api.events.models.Relative;
+import org.api.events.repo.RelativeRepo;
 import org.api.events.service.presentationservice.IPresentationService;
 import org.api.events.service.relativeservice.IRelativeService;
 import org.api.events.utils.IDtoMapper;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -29,22 +31,33 @@ public class Controller {
 
     @Autowired
     private IDtoMapper dtoMapper;
+    @Autowired
+    private RelativeRepo relativeRepo;
+
+    @GetMapping("/get")
+    public ResponseEntity<String> testing(){
+        return ResponseEntity.status(200).body("Hello this is for Testing the api application");
+    }
+
+
+
 
     @GetMapping("/getall")
     public ResponseEntity<List<Relative>> getAll() {
         return ResponseEntity.status(200).body(relativeService.getAllRelatives());
     }
 
-    @GetMapping("/get")
-    public ResponseEntity<String> testing(){
 
-        log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
-        return ResponseEntity.status(200).body("Hello this is for Testing the api application");
-    }
 
     @PostMapping("presentation")
     public ResponseEntity<Dto> creatingRec(@RequestBody Dto dto){
         Relative relative = dtoMapper.dtoToRelative(dto);
+        Optional<Relative> relative1 =  relativeService.getRelative(relative.getFirstName(), relative.getLastName(), relative.getCity());
+        if(relative1.isEmpty()){
+            log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
+        }
+        log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
+
         Presentation presentation = dtoMapper.dtoToPresentation(dto);
         // validate is pending
         relativeService.saveRelative(relative);

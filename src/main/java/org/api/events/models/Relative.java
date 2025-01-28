@@ -3,8 +3,6 @@ package org.api.events.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @Setter
@@ -18,9 +16,9 @@ public class Relative extends BaseModel {
     private String address;
     private String phone; // null
 
-    @OneToMany(mappedBy = "relative", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Presentation> presentations = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Presentation> presentations;
 
-    @OneToMany(mappedBy = "relative", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Receiving> receivings = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Receiving> receivings;
 }

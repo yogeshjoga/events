@@ -1,0 +1,9 @@
+        log.info("\u001B[1;29m :: Get COLOR WHITE      :: \u001B[0m");
+        log.info("\u001B[1;30m :: Get COLOR BLACK      :: \u001B[0m");
+        log.info("\u001B[1;31m :: Get COLOR RED        :: \u001B[0m");
+        log.info("\u001B[1;32m :: Get COLOR DARK GREEN :: \u001B[0m");
+        log.info("\u001B[1;33m :: Get COLOR YELLOW     :: \u001B[0m");
+        log.info("\u001B[1;34m :: Get COLOR DARK BLUE  :: \u001B[0m");
+        log.info("\u001B[1;35m :: Get COLOR PURPLE     :: \u001B[0m");
+        log.info("\u001B[1;36m :: Get COLOR LIGHT BLUE :: \u001B[0m");
+        log.info("\u001B[1;37m :: Get COLOR GRAY       :: \u001B[0m");
