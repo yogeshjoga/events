@@ -6,6 +6,7 @@ import org.api.events.repo.PresentationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 
 
 @Service
@@ -17,5 +18,10 @@ public class PresentationService implements IPresentationService {
     @Override
     public Presentation savePresentation(Presentation presentation) {
         return presentationRepo.save(presentation);
+    }
+
+    @Override
+    public List<Presentation> getAll() {
+        return presentationRepo.findAll();
     }
 }

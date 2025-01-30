@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface RelativeRepo  extends JpaRepository<Relative, Long> {
 
     // write Custom query's
-    // @Query("SELECT * FROM relative WHERE firstName = :firstName and lastName = :lastName and city = :city");
+    //@Query("SELECT * FROM relative WHERE firstName = :firstName and lastName = :lastName and city = :city");
     Optional<Relative> findRelativeByFirstNameAndLastNameAndCity(String firstName, String lastName, String city);
 }

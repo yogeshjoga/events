@@ -1,6 +1,7 @@
 package org.api.events.controllers;
 
 import org.api.events.dto.Dto;
+import org.api.events.dto.RespPresentationDto;
 import org.api.events.models.Presentation;
 import org.api.events.models.Relative;
 import org.api.events.repo.RelativeRepo;
@@ -40,15 +41,21 @@ public class Controller {
     }
 
 
-
-
+    /**
+     * <b>Get all relatives</b>
+     * @return
+     */
     @GetMapping("/getall")
     public ResponseEntity<List<Relative>> getAll() {
         return ResponseEntity.status(200).body(relativeService.getAllRelatives());
     }
 
 
-
+    /**
+     * <b>Presentations </b>
+     * @param dto
+     * @return
+     */
     @PostMapping("presentation")
     public ResponseEntity<Dto> creatingRec(@RequestBody Dto dto){
         Relative relative = dtoMapper.dtoToRelative(dto);
@@ -67,6 +74,31 @@ public class Controller {
         // pending
         return ResponseEntity.status(201).body(dto);
     }
+
+
+
+    // -----------------------< Presentation api >--------------------------------------
+
+
+    // get all
+    // get join by relative_id
+    @GetMapping("/allpre")
+    public ResponseEntity<List<RespPresentationDto>> getAllPresentations() {
+        List<Presentation> pres = presentationService.getAll();
+        List<RespPresentationDto> resp = dtoMapper.presentationToRespDtoList(pres);
+        return ResponseEntity.status(200).body(resp);
+    }
+
+    @GetMapping("/relatives1")
+    public ResponseEntity<List<Relative>> getAllRelatives() {
+        return null;
+    }
+
+    @GetMapping("/relatives2")
+    public ResponseEntity<List<Relative>> getAllRelatives(@RequestParam(required = false) String city) {
+        return null;
+    }
+
 
 
 
