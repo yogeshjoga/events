@@ -1,5 +1,7 @@
 package org.api.events.controllers;
 
+import org.api.events.constents.GettingType;
+import org.api.events.constents.TotalReceivedType;
 import org.api.events.dto.*;
 import org.api.events.models.Presentation;
 import org.api.events.models.Receiving;
@@ -144,31 +146,33 @@ public class Controller {
         return ResponseEntity.status(200).body(listCitys);
     }
 
-    @GetMapping("/relatives2")
-    public ResponseEntity<List<Relative>> getAllRelatives(@RequestParam(required = false) String city) {
-        return null;
+    // total gold silver amount sum not count
+    @GetMapping("/totalrec/{type}/{getType}")
+    public ResponseEntity<?> totals(@RequestParam(required = true, value = "type") TotalReceivedType type,
+                                    @RequestParam(required = true,value = "getType") GettingType getType) {
+
+        TotalReceived resp = new TotalReceived();
+        if (type.equals(TotalReceivedType.GOLD_IN_GM) && getType.equals(GettingType.RECEIVING)){
+            resp.setReceived_gm_or_INR(receivingService.getTotalGold());
+            resp.setType(TotalReceivedType.GOLD_IN_GM);
+        }else if(type.equals(TotalReceivedType.GOLD_IN_GM) && getType.equals(GettingType.PRESENTATION)) {
+            resp.setReceived_gm_or_INR(presentationService.getTotalGold());
+            resp.setType(TotalReceivedType.GOLD_IN_GM);
+        }else if(type.equals(TotalReceivedType.SILVER_IN_GM) && getType.equals(GettingType.RECEIVING) ) {
+            resp.setReceived_gm_or_INR(receivingService.getTotalSliver());
+            resp.setType(TotalReceivedType.SILVER_IN_GM);
+        }else if(type.equals(TotalReceivedType.SILVER_IN_GM) && getType.equals(GettingType.PRESENTATION) ) {
+            resp.setReceived_gm_or_INR(presentationService.getTotalSliver());
+            resp.setType(TotalReceivedType.SILVER_IN_GM);
+        }else if(type.equals(TotalReceivedType.AMOUNT_IN_INR) && getType.equals(GettingType.RECEIVING) ) {
+            resp.setReceived_gm_or_INR(receivingService.getTotalAmount());
+            resp.setType(TotalReceivedType.AMOUNT_IN_INR);
+        }else if(type.equals(TotalReceivedType.AMOUNT_IN_INR) && getType.equals(GettingType.PRESENTATION) ) {
+            resp.setReceived_gm_or_INR(presentationService.getTotalAmount());
+            resp.setType(TotalReceivedType.AMOUNT_IN_INR);
+        }
+        return ResponseEntity.status(200).body(resp);
     }
-
-
-
-
-
-// Add presentation ---------
-// add receiving -------
-
-
-//* GetAllRelatives ----
-//* GetAllPresentations -----
-//* GetAllRecevicings-----
-//* GetAllCitys ----
-//* GetAllGoldRecevings
-//* GetAllGoldPresentations
-//* GetAllSiliverRecevings
-//* GetAllSiliverPresentations
-//* GetAllAmountRecevings
-//* GetAllAmountPresentations
-
-
 
 
 

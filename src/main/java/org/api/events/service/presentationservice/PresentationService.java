@@ -24,4 +24,19 @@ public class PresentationService implements IPresentationService {
     public List<Presentation> getAll() {
         return presentationRepo.findAll();
     }
+
+    @Override
+    public Double getTotalGold(){
+        return presentationRepo.findTotalGold_in_gm();
+    }
+
+    @Override
+    public Double getTotalSliver(){
+        return presentationRepo.findTotalSilver_in_gm();
+    }
+
+    @Override
+    public Double getTotalAmount(){
+        return presentationRepo.findTotalAmount();
+    }
 }

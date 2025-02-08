@@ -8,4 +8,7 @@ import java.util.List;
 public interface IPresentationService {
     Presentation savePresentation(Presentation presentation);
     List<Presentation> getAll();
+    Double getTotalGold();
+    Double getTotalAmount();
+    Double getTotalSliver();
 }

@@ -10,9 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface RelativeRepo  extends JpaRepository<Relative, Long> {
+public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 
     // write Custom query's
     //@Query("SELECT * FROM relative WHERE firstName = :firstName and lastName = :lastName and city = :city");
@@ -29,4 +30,5 @@ public interface RelativeRepo  extends JpaRepository<Relative, Long> {
     @Query("SELECT DISTINCT city FROM relative")
     List<String> findUniqueCitiesByCity();
 
+    Relative findByEmail(String email);
 }

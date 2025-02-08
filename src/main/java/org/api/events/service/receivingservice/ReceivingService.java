@@ -26,4 +26,23 @@ public class ReceivingService implements IReceivingService {
         return receivingRepo.findAll();
     }
 
+
+    @Override
+    public Double getTotalGold(){
+        return receivingRepo.findTotalGold_in_gm();
+    }
+
+    @Override
+    public Double getTotalSliver(){
+        return receivingRepo.findTotalSilver_in_gm();
+    }
+
+    @Override
+    public Double getTotalAmount(){
+        return receivingRepo.findTotalAmount();
+    }
+
+
+
+
 }

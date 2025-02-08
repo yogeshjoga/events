@@ -7,6 +7,8 @@ import java.util.List;
 public interface IReceivingService {
 
     Receiving saveReceiving(Receiving receiving);
-
     List<Receiving> getAllRecivings();
+    Double getTotalGold();
+    Double getTotalAmount();
+    Double getTotalSliver();
 }
