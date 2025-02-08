@@ -2,7 +2,9 @@ package org.api.events.utils;
 
 import org.api.events.dto.Dto;
 import org.api.events.dto.RespPresentationDto;
+import org.api.events.dto.RespRecivingDTO;
 import org.api.events.models.Presentation;
+import org.api.events.models.Receiving;
 import org.api.events.models.Relative;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,6 +64,34 @@ public class DtoMapper implements IDtoMapper {
         }
         log.info("\u001B[1;32m :: LIST OF PRESENTATIONS TO RESPONCE_PRESENTATION_DTO CREATED :: \u001B[0m");
         return respDtos;
+    }
+
+
+    @Override
+    public List<RespRecivingDTO> recivingToRespDtoList(List<Receiving> receivings) {
+        List<RespRecivingDTO> respDtos = new ArrayList<>();
+        for (Receiving receiving : receivings) {
+            RespRecivingDTO respDto = new RespRecivingDTO();
+            respDto.setAmount(receiving.getAmount());
+            respDto.setGold(receiving.getGold_in_gm());
+            respDto.setSilver(receiving.getSilver_in_gm());
+            respDto.setObject(receiving.getObjects());
+            respDto.setCreatedDate(receiving.getCreated());
+            respDto.setUpdatedDate(receiving.getUpdated());
+            respDtos.add(respDto);
+        }
+        log.info("\u001B[1;32m :: LIST OF RECIVING TO RESPONCE_RECIVING_DTO CREATED :: \u001B[0m");
+        return respDtos;
+    }
+
+    @Override
+    public Receiving dtoToReceiving(Dto dto) {
+        Receiving receiving = new Receiving();
+        receiving.setAmount(dto.getAmount());
+        receiving.setObjects(dto.getObjects());
+        receiving.setGold_in_gm(dto.getGold());
+        receiving.setSilver_in_gm(dto.getSilver());
+        return receiving;
     }
 
 }

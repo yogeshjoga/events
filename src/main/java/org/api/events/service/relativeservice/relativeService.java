@@ -5,6 +5,8 @@ import org.api.events.repo.RelativeRepo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -32,4 +34,17 @@ public class relativeService implements IRelativeService {
         log.info("\u001B[1;32m :: Get relative By FirstName LastName City :: \u001B[0m");
        return relativeRepo.findRelativeByFirstNameAndLastNameAndCity(firstName,lastName,city);
     }
+
+
+    public Boolean isRelative(Relative relative) {
+        Optional<Relative> rel = relativeRepo.findRelativeByFirstNameAndLastNameAndCity(relative.getFirstName(),relative.getLastName(),relative.getCity());
+        return rel.isPresent();
+    }
+
+
+
+    public List<String> getAllUniqueCitys(){
+        return relativeRepo.findUniqueCitiesByCity();
+    }
+
 }
