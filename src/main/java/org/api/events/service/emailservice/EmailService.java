@@ -17,7 +17,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailService implements  IEmialService{
+public class EmailService implements IEmailService {
 
 
     @Autowired

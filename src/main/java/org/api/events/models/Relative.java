@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.api.events.constents.VerficationState;
-
 import java.util.List;
 
 @Setter
@@ -14,14 +13,19 @@ public class Relative extends BaseModel {
     private String firstName;
     private String lastName;
     private String city;
+
+    @Column(unique = true, nullable = false)
+    private String userName;
    // private String name;
     private String address;
 
-    @Column(unique = true, nullable = true)
+    @Column(unique = true)
     private String phone; // null
 
-    @Column(unique = true, nullable = false)
+    @Column()
     private String email;
+
+    private String password;
 
     @Enumerated(EnumType.STRING)
     private VerficationState state;

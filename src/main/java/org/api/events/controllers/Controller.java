@@ -108,7 +108,7 @@ public class Controller {
      * <b>Get all relatives</b>
      * @return
      */
-    @GetMapping("/getallrel")
+    @GetMapping("/getallrel")  // the Response not cleared fix the issue
     public ResponseEntity<List<Relative>> getAllRelative() {
         return ResponseEntity.status(200).body(relativeService.getAllRelatives());
     }
@@ -147,7 +147,7 @@ public class Controller {
     }
 
     // total gold silver amount sum not count
-    @GetMapping("/totalrec/{type}/{getType}")
+    @GetMapping("/totalrec")
     public ResponseEntity<?> totals(@RequestParam(required = true, value = "type") TotalReceivedType type,
                                     @RequestParam(required = true,value = "getType") GettingType getType) {
 

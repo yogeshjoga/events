@@ -1,5 +1,7 @@
 package org.api.events.service.relativeservice;
 
+import org.api.events.dto.RelativeResponceDto;
+import org.api.events.dto.SignUpDTO;
 import org.api.events.models.Relative;
 import org.springframework.data.domain.Page;
 
@@ -12,4 +14,5 @@ public interface IRelativeService {
     Optional<Relative> getRelative(String firstName, String lastName, String city);
     Boolean isRelative(Relative relative);
     List<String> getAllUniqueCitys();
+    RelativeResponceDto signUp(SignUpDTO dto);
 }
