@@ -22,7 +22,7 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://ba55-103-184-87-59.ngrok-free.app/"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app"})
 @RequestMapping("/")
 public class Controller {
 
@@ -172,6 +172,18 @@ public class Controller {
             resp.setType(TotalReceivedType.AMOUNT_IN_INR);
         }
         return ResponseEntity.status(200).body(resp);
+    }
+
+
+    /**
+     * <b>Testing was successfully working Now you can try this methods no need to use dto mappings and extra layers</b>
+     * @return AllCityDTO
+     */
+
+    @GetMapping("/dto") // cityDTO
+    public ResponseEntity<?> testingDTOResponce(){
+        List<AllCitysDto> dto = relativeService.getAllCitys();
+        return ResponseEntity.status(200).body(dto);
     }
 
 

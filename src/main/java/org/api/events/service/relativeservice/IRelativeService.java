@@ -1,10 +1,9 @@
 package org.api.events.service.relativeservice;
 
+import org.api.events.dto.AllCitysDto;
 import org.api.events.dto.RelativeResponceDto;
 import org.api.events.dto.SignUpDTO;
 import org.api.events.models.Relative;
-import org.springframework.data.domain.Page;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +14,7 @@ public interface IRelativeService {
     Boolean isRelative(Relative relative);
     List<String> getAllUniqueCitys();
     RelativeResponceDto signUp(SignUpDTO dto);
+
+    // testing
+    List<AllCitysDto> getAllCitys();
 }

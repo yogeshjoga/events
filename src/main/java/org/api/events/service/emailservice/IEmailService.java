@@ -1,9 +1,10 @@
 package org.api.events.service.emailservice;
 
 import org.api.events.constents.VerficationState;
+import org.api.events.models.Relative;
 
 public interface IEmailService {
-    Boolean sendVerificationEmail(String email);
+    Boolean sendVerificationEmail(String email, Relative relative);
 
     VerficationState verifyOTP(String email, String otp);
 }

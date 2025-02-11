@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity(name = "otp")
 public class OTP extends BaseModel {
     private String otp;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "relative_id")
     private Relative relative;
 }

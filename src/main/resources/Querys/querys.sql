@@ -9,4 +9,10 @@ SET foreign_key_checks = 1;
 DROP TABLE presentations;
 DROP TABLE receiving;
 DROP TABLE relative;
+DROP TABLE otp;
+DROP TABLE relative_presentations;
+DROP TABLE relative_receivings;
+
+
+create database search;
 

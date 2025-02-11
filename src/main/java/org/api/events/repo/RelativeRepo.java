@@ -1,5 +1,7 @@
 package org.api.events.repo;
 
+import org.api.events.dto.AllCitysDto;
+import org.api.events.dto.CityDto;
 import org.api.events.models.Relative;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -30,4 +32,25 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     List<String> findUniqueCitiesByCity();
 
     Relative findByEmail(String email);
+
+  //  @Query("SELECT new org.api.events.dto.AllCitysDto(r.city) FROM relative  r WHERE r.city = :city")
+    @Query("SELECT DISTINCT new org.api.events.dto.AllCitysDto(r.city) FROM relative r")
+    List<AllCitysDto> findAllByCity();
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,9 @@ package org.api.events.controllers;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.api.events.config.UtilConfig;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.api.events.constents.VerficationState;
 import org.api.events.dto.OTPdto;
 import org.api.events.dto.RelativeResponceDto;
@@ -14,15 +16,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/public")
+@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app"})
+@Tag(name = "Authentication Api's", description = "These all api's are from authController class")
 public class AuthController {
 
     private static final Logger log = LoggerFactory.getLogger(AuthController.class);
@@ -40,6 +42,10 @@ public class AuthController {
 
 
     @PostMapping("/signup")
+    @Operation(summary = "This is Post method for new User SignUp",
+                        description= "<h2> This is the SignUp api for new User creation </h2>" +
+                                "<p>Require parameters <ul><li>userName</li>" +
+                                "<li>password </li> </ul></p>")
     public ResponseEntity<?> signUp(@RequestBody SignUpDTO dto){
         RelativeResponceDto resp = relativeService.signUp(dto);
         log.info("\u001B[1;32m :: SIGNUP SUCCESSFULL :: \u001B[0m");

@@ -44,6 +44,14 @@
 20. GetTotalNumberOfGiftsPresentated --
 21. GetTotalNumberOfGiftsRecevings --
 
+
+```sql
+ //  @Query("SELECT new org.api.events.dto.AllCitysDto(r.city) FROM relative  r WHERE r.city = :city")
+    @Query("SELECT DISTINCT new org.api.events.dto.AllCitysDto(r.city) FROM relative r")
+    List<AllCitysDto> findAllByCity();
+# Above Query Return the Dto type, By filtering Dto constructor params with absoulte path
+```
+
 # Auth
 
 1. SignUp through Email

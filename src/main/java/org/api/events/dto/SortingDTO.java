@@ -3,6 +3,7 @@ package org.api.events.dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,6 +13,6 @@ public class SortingDTO {
     private String name;
     private String fistName;
     private String lastName;
-    private Date createdDate;
-    private Date modifiedDate;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 }

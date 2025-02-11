@@ -19,10 +19,10 @@ public class Relative extends BaseModel {
    // private String name;
     private String address;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = true)
     private String phone; // null
 
-    @Column()
+    @Column(unique = true,nullable = true)
     private String email;
 
     private String password;
