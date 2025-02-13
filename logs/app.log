@@ -1,22 +1,22 @@
-2025-02-11 23:00:04,460 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 21516 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:00:04,462 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:00:04,502 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
-2025-02-11 23:00:04,503 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
-2025-02-11 23:00:05,223 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:00:05,267 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 38 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:00:05,692 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:00:05,701 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:00:05,701 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:00:05,729 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:00:05,729 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 1226 ms : prepareWebApplicationContext : 
-2025-02-11 23:00:05,814 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:00:05,843 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
-2025-02-11 23:00:05,861 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:00:05,997 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:00:06,012 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
-2025-02-11 23:00:06,195 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@482cbf1f : checkFailFast : 
-2025-02-11 23:00:06,196 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
-2025-02-11 23:00:06,239 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
+2025-02-13 10:56:43,522 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 4092 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-13 10:56:43,524 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-13 10:56:43,561 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
+2025-02-13 10:56:43,561 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
+2025-02-13 10:56:44,110 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
+2025-02-13 10:56:44,150 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 34 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
+2025-02-13 10:56:44,535 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
+2025-02-13 10:56:44,544 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
+2025-02-13 10:56:44,544 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
+2025-02-13 10:56:44,575 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
+2025-02-13 10:56:44,576 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 1014 ms : prepareWebApplicationContext : 
+2025-02-13 10:56:44,666 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
+2025-02-13 10:56:44,694 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
+2025-02-13 10:56:44,710 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
+2025-02-13 10:56:44,854 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
+2025-02-13 10:56:44,869 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
+2025-02-13 10:56:45,050 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@320030f5 : checkFailFast : 
+2025-02-13 10:56:45,051 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
+2025-02-13 10:56:45,095 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.40
@@ -24,136 +24,44 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:00:06,730 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:00:06,779 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:00:06,794 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:00:06,800 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:00:06,989 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
-2025-02-11 23:00:07,323 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:00:07,381 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$G2cRXmW7z.183VFdBDo3Meaqu9P75Lp5Wq1.nhhXwvQiWyy42heIe  :: [0m : passwordEncoder : 
-2025-02-11 23:00:07,451 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:00:07,470 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:00:07,506 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:00:07,557 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:00:07,753 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:00:07,773 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:00:07,778 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 3.637 seconds (process running for 4.092) : logStarted : 
-2025-02-11 23:00:26,368 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
-2025-02-11 23:00:26,368 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
-2025-02-11 23:00:26,369 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
-2025-02-11 23:03:13,388 : org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener : INFO --> Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications) : onApplicationEvent : 
-2025-02-11 23:03:13,390 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:03:13,394 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:03:13,396 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:03:13,398 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
-2025-02-11 23:03:13,402 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
-2025-02-11 23:03:13,497 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 21516 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:03:13,497 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:03:13,624 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:03:13,648 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 23 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:03:13,722 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:03:13,724 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:03:13,724 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:03:13,732 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:03:13,732 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 234 ms : prepareWebApplicationContext : 
-2025-02-11 23:03:13,751 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:03:13,752 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:03:13,757 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:03:13,758 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-2 - Starting... : getConnection : 
-2025-02-11 23:03:13,772 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4c2a421f : checkFailFast : 
-2025-02-11 23:03:13,773 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-2 - Start completed. : getConnection : 
-2025-02-11 23:03:13,773 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 8.0.40
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:03:13,827 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:03:13,844 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:03:13,851 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:03:13,853 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:03:13,898 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:03:13,954 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$emeikK7u0peGwBtUa1DC2eAQqBQ5cnFYtq4yjwj8/64lukryCx6bq  :: [0m : passwordEncoder : 
-2025-02-11 23:03:13,994 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:03:13,999 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:03:14,001 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:03:14,018 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:03:14,073 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:03:14,084 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:03:14,087 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 0.604 seconds (process running for 190.401) : logStarted : 
-2025-02-11 23:03:14,090 : org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener : INFO --> Condition evaluation unchanged : onApplicationEvent : 
-2025-02-11 23:03:15,493 : org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener : INFO --> Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications) : onApplicationEvent : 
-2025-02-11 23:03:15,493 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:03:15,497 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:03:15,498 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:03:15,498 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-2 - Shutdown initiated... : close : 
-2025-02-11 23:03:15,500 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-2 - Shutdown completed. : close : 
-2025-02-11 23:03:15,550 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 21516 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:03:15,551 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:03:15,643 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:03:15,653 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 9 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:03:15,710 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:03:15,710 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:03:15,710 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:03:15,719 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:03:15,719 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 168 ms : prepareWebApplicationContext : 
-2025-02-11 23:03:15,736 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:03:15,737 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:03:15,740 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:03:15,741 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-3 - Starting... : getConnection : 
-2025-02-11 23:03:15,750 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46114944 : checkFailFast : 
-2025-02-11 23:03:15,750 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-3 - Start completed. : getConnection : 
-2025-02-11 23:03:15,751 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
-	Database driver: undefined/unknown
-	Database version: 8.0.40
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:03:15,794 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:03:15,811 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:03:15,818 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:03:15,819 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:03:15,861 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:03:15,918 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$v6BJFX.j73yyK36SF5dT2e1sOv9xyxpkjsUfOBrEIKmiZBImz1dRa  :: [0m : passwordEncoder : 
-2025-02-11 23:03:15,952 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:03:15,957 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:03:15,958 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:03:15,971 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:03:16,015 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:03:16,021 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:03:16,022 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 0.481 seconds (process running for 192.337) : logStarted : 
-2025-02-11 23:03:16,023 : org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener : INFO --> Condition evaluation unchanged : onApplicationEvent : 
-2025-02-11 23:04:03,935 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
-2025-02-11 23:04:03,935 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
-2025-02-11 23:04:03,936 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
-2025-02-11 23:04:21,768 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:04:21,772 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:04:21,773 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:04:21,773 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-3 - Shutdown initiated... : close : 
-2025-02-11 23:04:21,775 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-3 - Shutdown completed. : close : 
-2025-02-11 23:04:24,801 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 8132 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:04:24,804 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:04:24,835 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
-2025-02-11 23:04:24,835 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
-2025-02-11 23:04:25,228 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:04:25,260 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 28 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:04:25,598 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:04:25,607 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:04:25,607 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:04:25,631 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:04:25,631 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 796 ms : prepareWebApplicationContext : 
-2025-02-11 23:04:25,713 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:04:25,742 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
-2025-02-11 23:04:25,760 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:04:25,897 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:04:25,913 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
-2025-02-11 23:04:26,097 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@60307c18 : checkFailFast : 
-2025-02-11 23:04:26,098 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
-2025-02-11 23:04:26,145 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
+2025-02-13 10:56:45,586 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
+2025-02-13 10:56:45,644 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
+2025-02-13 10:56:45,657 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
+2025-02-13 10:56:45,663 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
+2025-02-13 10:56:45,842 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
+2025-02-13 10:56:46,396 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
+2025-02-13 10:56:46,454 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$UclfVpi/XZKD9j13KZnsHOFG0fOFmU5JXfwUncqqRz2R4k5kVHRvu  :: [0m : passwordEncoder : 
+2025-02-13 10:56:46,528 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
+2025-02-13 10:56:46,549 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-13 10:56:46,586 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
+2025-02-13 10:56:46,640 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-13 10:56:46,842 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
+2025-02-13 10:56:46,864 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
+2025-02-13 10:56:46,868 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 3.637 seconds (process running for 4.091) : logStarted : 
+2025-02-13 10:57:04,443 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
+2025-02-13 10:57:04,448 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
+2025-02-13 10:57:04,451 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
+2025-02-13 10:57:04,453 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
+2025-02-13 10:57:04,458 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
+2025-02-13 12:19:59,906 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 26444 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-13 12:19:59,907 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-13 12:19:59,938 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
+2025-02-13 12:19:59,938 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
+2025-02-13 12:20:00,365 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
+2025-02-13 12:20:00,405 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
+2025-02-13 12:20:00,726 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
+2025-02-13 12:20:00,734 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
+2025-02-13 12:20:00,734 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
+2025-02-13 12:20:00,760 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
+2025-02-13 12:20:00,760 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 821 ms : prepareWebApplicationContext : 
+2025-02-13 12:20:00,836 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
+2025-02-13 12:20:00,867 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
+2025-02-13 12:20:00,884 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
+2025-02-13 12:20:01,024 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
+2025-02-13 12:20:01,039 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
+2025-02-13 12:20:01,226 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d9e31d0 : checkFailFast : 
+2025-02-13 12:20:01,227 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
+2025-02-13 12:20:01,271 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.40
@@ -161,47 +69,48 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:04:26,635 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:04:26,678 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:04:26,691 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:04:26,697 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:04:26,853 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
-2025-02-11 23:04:27,145 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:04:27,203 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$DfDi93ztGOxgB/tV.lXA3OJH4VXWd0wM6IeMh9djwEJrDJUvdFIhW  :: [0m : passwordEncoder : 
-2025-02-11 23:04:27,272 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:04:27,290 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:04:27,314 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:04:27,362 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:04:27,544 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:04:27,565 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:04:27,570 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 2.976 seconds (process running for 3.341) : logStarted : 
-2025-02-11 23:04:29,427 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
-2025-02-11 23:04:29,428 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
-2025-02-11 23:04:29,429 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
-2025-02-11 23:05:01,662 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:05:01,665 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:05:01,668 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:05:01,669 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
-2025-02-11 23:05:01,673 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
-2025-02-11 23:05:08,987 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 21724 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:05:08,988 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:05:09,021 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
-2025-02-11 23:05:09,021 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
-2025-02-11 23:05:09,432 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:05:09,468 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 31 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:05:09,795 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:05:09,802 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:05:09,802 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:05:09,824 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:05:09,824 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 803 ms : prepareWebApplicationContext : 
-2025-02-11 23:05:09,907 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:05:09,935 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
-2025-02-11 23:05:09,949 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:05:10,087 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:05:10,101 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
-2025-02-11 23:05:10,272 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6cc4e8f0 : checkFailFast : 
-2025-02-11 23:05:10,274 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
-2025-02-11 23:05:10,315 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
+2025-02-13 12:20:01,773 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
+2025-02-13 12:20:01,817 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
+2025-02-13 12:20:01,830 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
+2025-02-13 12:20:01,836 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
+2025-02-13 12:20:01,998 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
+2025-02-13 12:20:02,556 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
+2025-02-13 12:20:02,615 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$e6.ZXu6StMZDP5gfQGjhoOp8PjjERmgqdkTA5zeu4yK26yzBfoYDi  :: [0m : passwordEncoder : 
+2025-02-13 12:20:02,698 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
+2025-02-13 12:20:02,718 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-13 12:20:02,747 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
+2025-02-13 12:20:02,801 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-13 12:20:03,020 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
+2025-02-13 12:20:03,043 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
+2025-02-13 12:20:03,048 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 3.359 seconds (process running for 3.735) : logStarted : 
+2025-02-13 12:20:09,882 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
+2025-02-13 12:20:09,883 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
+2025-02-13 12:20:09,884 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
+2025-02-13 12:20:10,592 : org.springdoc.api.AbstractOpenApiResource : INFO --> Init duration for springdoc-openapi is: 363 ms : getOpenApi : 
+2025-02-13 12:25:29,576 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
+2025-02-13 12:25:29,581 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
+2025-02-13 12:25:29,584 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
+2025-02-13 12:25:29,586 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
+2025-02-13 12:25:29,591 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
+2025-02-13 12:25:32,269 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 17228 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-13 12:25:32,271 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-13 12:25:32,305 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
+2025-02-13 12:25:32,306 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
+2025-02-13 12:25:32,750 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
+2025-02-13 12:25:32,791 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 36 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
+2025-02-13 12:25:33,165 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
+2025-02-13 12:25:33,173 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
+2025-02-13 12:25:33,174 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
+2025-02-13 12:25:33,199 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
+2025-02-13 12:25:33,200 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 894 ms : prepareWebApplicationContext : 
+2025-02-13 12:25:33,286 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
+2025-02-13 12:25:33,315 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
+2025-02-13 12:25:33,332 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
+2025-02-13 12:25:33,476 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
+2025-02-13 12:25:33,491 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
+2025-02-13 12:25:33,673 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@694c1bbf : checkFailFast : 
+2025-02-13 12:25:33,674 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
+2025-02-13 12:25:33,717 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.40
@@ -209,73 +118,26 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:05:10,774 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:05:10,811 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:05:10,824 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:05:10,829 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:05:10,974 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
-2025-02-11 23:05:11,271 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:05:11,329 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$VpWWMcnxiVaUe/3oY73TZ.UQXBoZ83SzHMLa5NG82Jy9LBoghBl2e  :: [0m : passwordEncoder : 
-2025-02-11 23:05:11,395 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:05:11,411 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:05:11,434 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:05:11,476 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:05:11,648 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:05:11,666 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:05:11,671 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 2.876 seconds (process running for 3.219) : logStarted : 
-2025-02-11 23:05:19,048 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
-2025-02-11 23:05:19,048 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
-2025-02-11 23:05:19,049 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
-2025-02-11 23:05:25,890 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:05:25,894 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:05:25,896 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:05:25,897 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
-2025-02-11 23:05:25,900 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
-2025-02-11 23:05:28,300 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 33368 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
-2025-02-11 23:05:28,301 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
-2025-02-11 23:05:28,333 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
-2025-02-11 23:05:28,333 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
-2025-02-11 23:05:28,717 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
-2025-02-11 23:05:28,752 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 31 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
-2025-02-11 23:05:29,090 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
-2025-02-11 23:05:29,099 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
-2025-02-11 23:05:29,099 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
-2025-02-11 23:05:29,123 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
-2025-02-11 23:05:29,123 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 789 ms : prepareWebApplicationContext : 
-2025-02-11 23:05:29,208 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
-2025-02-11 23:05:29,240 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
-2025-02-11 23:05:29,256 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
-2025-02-11 23:05:29,395 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
-2025-02-11 23:05:29,411 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
-2025-02-11 23:05:29,595 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@679d33be : checkFailFast : 
-2025-02-11 23:05:29,596 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
-2025-02-11 23:05:29,638 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 8.0.40
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown : initiateService : 
-2025-02-11 23:05:30,111 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
-2025-02-11 23:05:30,151 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
-2025-02-11 23:05:30,163 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
-2025-02-11 23:05:30,170 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
-2025-02-11 23:05:30,325 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
-2025-02-11 23:05:30,624 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
-2025-02-11 23:05:30,683 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$A.dNXeStRlkNODXlN5a5MeS9ZUcx2kLVxrD9ggb1gznT5RFjv3bii  :: [0m : passwordEncoder : 
-2025-02-11 23:05:30,746 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
-2025-02-11 23:05:30,763 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
-2025-02-11 23:05:30,787 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
-2025-02-11 23:05:30,829 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
-2025-02-11 23:05:31,010 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
-2025-02-11 23:05:31,030 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
-2025-02-11 23:05:31,034 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 2.934 seconds (process running for 3.278) : logStarted : 
-2025-02-11 23:05:35,560 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
-2025-02-11 23:05:35,560 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
-2025-02-11 23:05:35,562 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 2 ms : initServletBean : 
-2025-02-11 23:06:28,080 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
-2025-02-11 23:06:28,084 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
-2025-02-11 23:06:28,086 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
-2025-02-11 23:06:28,087 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
-2025-02-11 23:06:28,089 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
+2025-02-13 12:25:34,219 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
+2025-02-13 12:25:34,267 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
+2025-02-13 12:25:34,284 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
+2025-02-13 12:25:34,290 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
+2025-02-13 12:25:34,463 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
+2025-02-13 12:25:35,025 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
+2025-02-13 12:25:35,084 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$vEcWMk.Lo162vOoPZO9.r.GOw3qa/e8bSuUHSiG8rc2f/8omSRsl.  :: [0m : passwordEncoder : 
+2025-02-13 12:25:35,149 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
+2025-02-13 12:25:35,175 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-13 12:25:35,204 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
+2025-02-13 12:25:35,251 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-13 12:25:35,464 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
+2025-02-13 12:25:35,490 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
+2025-02-13 12:25:35,495 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 3.469 seconds (process running for 3.871) : logStarted : 
+2025-02-13 12:25:36,203 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
+2025-02-13 12:25:36,203 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
+2025-02-13 12:25:36,204 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
+2025-02-13 12:25:36,765 : org.springdoc.api.AbstractOpenApiResource : INFO --> Init duration for springdoc-openapi is: 213 ms : getOpenApi : 
+2025-02-13 12:34:01,500 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
+2025-02-13 12:34:01,508 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
+2025-02-13 12:34:01,511 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
+2025-02-13 12:34:01,515 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
+2025-02-13 12:34:01,521 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 

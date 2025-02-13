@@ -1,7 +1,6 @@
 package org.api.events.utils;
 
 import org.api.events.models.OTP;
-import org.api.events.service.emailservice.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

@@ -16,9 +16,12 @@ public class UtilConfig {
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         log.info("\u001B[1;32m :: Configuring BCrypt Password Encoder :: \u001B[0m");
+        // for password printing into console
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String plainPassword = "yogesh";
         String encodedPassword = passwordEncoder.encode(plainPassword);
+        // end
+
         log.info("\u001B[1;32m :: YOUR PASSWORD  " + encodedPassword +"  :: \u001B[0m");
         return new BCryptPasswordEncoder();
     }

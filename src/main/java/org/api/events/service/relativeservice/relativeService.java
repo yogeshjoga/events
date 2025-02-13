@@ -1,9 +1,7 @@
 package org.api.events.service.relativeservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.api.events.dto.AllCitysDto;
-import org.api.events.dto.RelativeResponceDto;
-import org.api.events.dto.SignUpDTO;
+import org.api.events.dto.*;
 import org.api.events.exceptions.EmailAlreadyExisted;
 import org.api.events.exceptions.EmailNotFoundException;
 import org.api.events.models.Relative;
@@ -90,6 +88,52 @@ public class relativeService implements IRelativeService {
     // Testing method
     public List<AllCitysDto> getAllCitys(){
         return relativeRepo.findAllByCity();
+    }
+
+    @Override
+    public List<RelativeByCityPreDto> getRelativeByCityPresenations(String city){
+        return relativeRepo.findByCityPresentations(city);
+    }
+    @Override
+    public List<RelativeByCityPreDto> getRelativeByCityReceiving(String city){
+        return relativeRepo.findByCityReceiving(city);
+    }
+
+    @Override
+    public List<AmountFromRelatives> getAmountFromRelativesPresenations(){
+        return relativeRepo.findAmountFromRelativesPresentations();
+    }
+    @Override
+    public List<AmountFromRelatives> getAmountFromRelativesReceiving(){
+        return relativeRepo.findAmountFromRelativesReceiving();
+    }
+
+    @Override
+    public List<GiftsFromRelatives> getGiftsFromRelativesPresenations(){
+        return relativeRepo.findGiftsFromRelativesPresentations();
+    }
+    @Override
+    public List<GiftsFromRelatives> getGiftsFromRelativesReceiving(){
+        return relativeRepo.findGiftsFromRelativesReceiving();
+    }
+
+    @Override
+    public List<GoldFromRelatives> getGoldFromRelativesPresenations(){
+        return relativeRepo.findGoldFromRelativesPresentations();
+    }
+    @Override
+    public List<GoldFromRelatives> getGoldFromRelativesReceiving(){
+        return relativeRepo.findGoldFromRelativesReceiving();
+    }
+
+
+    @Override
+    public List<SilverFromRelatives> getSilverFromRelativesPresenations(){
+        return relativeRepo.findSilverFromRelativesPresentations();
+    }
+    @Override
+    public List<SilverFromRelatives> getSilverFromRelativesReceiving(){
+        return relativeRepo.findSilverFromRelativesReceiving();
     }
 
 }

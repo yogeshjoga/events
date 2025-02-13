@@ -1,8 +1,6 @@
 package org.api.events.service.relativeservice;
 
-import org.api.events.dto.AllCitysDto;
-import org.api.events.dto.RelativeResponceDto;
-import org.api.events.dto.SignUpDTO;
+import org.api.events.dto.*;
 import org.api.events.models.Relative;
 import java.util.List;
 import java.util.Optional;
@@ -15,6 +13,28 @@ public interface IRelativeService {
     List<String> getAllUniqueCitys();
     RelativeResponceDto signUp(SignUpDTO dto);
 
+    List<RelativeByCityPreDto> getRelativeByCityPresenations(String city);
+    List<RelativeByCityPreDto> getRelativeByCityReceiving(String city);
+
+
+    List<AmountFromRelatives> getAmountFromRelativesPresenations();
+    List<AmountFromRelatives> getAmountFromRelativesReceiving();
+
+    List<GiftsFromRelatives> getGiftsFromRelativesPresenations();
+    List<GiftsFromRelatives> getGiftsFromRelativesReceiving();
+
+    List<GoldFromRelatives> getGoldFromRelativesPresenations();
+    List<GoldFromRelatives> getGoldFromRelativesReceiving();
+
+    List<SilverFromRelatives> getSilverFromRelativesPresenations();
+    List<SilverFromRelatives> getSilverFromRelativesReceiving();
+
+
+
+
+
+
     // testing
     List<AllCitysDto> getAllCitys();
+
 }

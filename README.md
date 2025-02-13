@@ -68,3 +68,15 @@ Log trace print thick bold
 ```
 log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
 ```
+
+
+
+
+
+
+Architected a Microservices based ECommerce Platform with functionalities like Login, Authorization, Product Catalog, Payment Gateway Integration, Service Discovery, Notification Service etc.
+Deployed whole Ecosystem on AWS Elastic Beanstalk leveraging RDS for Data Persistence, CloudWatch for efficient Logging and Monitoring
+Implemented Event Driven Email Service using Kafka to allow sending emails at large scale across different services within the Platform.
+Implemented powerful sorting, filtering and paging to allow for efficient discovery of products.
+Optimized the response time of APIs from ~500 ms to ~20 ms by making effective usage of Caching for static data using Redis Cache.
+Tools and Frameworks Used: Spring Boot, Spring Cloud, MySQL, Hibernate, Redis, Razorpay Payment Gateway, Stripe Payment Gateway, JUnit, Kafka.
