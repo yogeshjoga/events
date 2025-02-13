@@ -11,6 +11,11 @@ import lombok.Setter;
 public class OTP extends BaseModel {
     private String otp;
     @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "relative_id")
     private Relative relative;
 }

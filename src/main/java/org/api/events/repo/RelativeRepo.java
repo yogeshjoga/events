@@ -38,10 +38,6 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 
 
 
-
-
-
-
     /**
      * <b>For getting City based on relatives</b>
      * @param city
@@ -131,10 +127,18 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     List<AmountFromRelatives> findAmountFromRelativesReceiving();
 
 
-
-
-
-
+    /**
+     *
+     *  user - reg -> dashboard -> querying
+     *                              presenation insert
+     *                              rece insert
+     *                              querying
+     *
+     *              user -> pre/rec
+     *                      user city vizag presentation
+     *                       userid and city
+     *
+     */
 
 
 }

@@ -7,4 +7,6 @@ public interface IEmailService {
     Boolean sendVerificationEmail(String email, Relative relative);
 
     VerficationState verifyOTP(String email, String otp);
+
+    Boolean sendEmail(String to, String subject, String body);
 }

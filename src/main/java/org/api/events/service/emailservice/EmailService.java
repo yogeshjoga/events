@@ -95,14 +95,15 @@ public class EmailService implements IEmailService {
            throw new InvalidOTPException("Please Enter Valid OTP");
        }else{
            otpRepo.delete(newOTP);
-           relative.setState(VerficationState.VERFICATION_COMPLETED);
+          relative.setState(VerficationState.VERFICATION_COMPLETED);
            // Updating the relative verification status
            Relative respRel = relativeRepo.findByEmail(email);
            respRel.setState(VerficationState.VERFICATION_COMPLETED);
            relativeRepo.save(respRel);
-           // relativeRepo.save(relative);
+           //relativeRepo.save(relative);
            return relative.getState();
        }
+
     }
 
     public boolean isOTPExpired(LocalDateTime createdTime) {
