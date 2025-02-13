@@ -13,6 +13,15 @@ DROP TABLE otp;
 DROP TABLE relative_presentations;
 DROP TABLE relative_receivings;
 
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM presentations;
+DELETE FROM receiving;
+DELETE FROM otp;
+DELETE FROM relative_presentations;
+DELETE FROM relative_receivings;
+DELETE FROM relative;
+SET SQL_SAFE_UPDATES = 1;
+
 
 create database search;
 

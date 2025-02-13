@@ -141,3 +141,51 @@
 2025-02-13 12:34:01,511 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
 2025-02-13 12:34:01,515 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
 2025-02-13 12:34:01,521 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
+2025-02-13 13:32:49,967 : org.api.events.EventsApplication : INFO --> Starting EventsApplication using Java 23.0.1 with PID 3468 (D:\Github_projects\events\target\classes started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-13 13:32:49,968 : org.api.events.EventsApplication : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-13 13:32:50,007 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable : logTo : 
+2025-02-13 13:32:50,007 : org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor : INFO --> For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' : logTo : 
+2025-02-13 13:32:50,428 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
+2025-02-13 13:32:50,468 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces. : registerRepositoriesIn : 
+2025-02-13 13:32:50,818 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat initialized with port 8080 (http) : initialize : 
+2025-02-13 13:32:50,825 : org.apache.catalina.core.StandardService : INFO --> Starting service [Tomcat] : log : 
+2025-02-13 13:32:50,826 : org.apache.catalina.core.StandardEngine : INFO --> Starting Servlet engine: [Apache Tomcat/10.1.34] : log : 
+2025-02-13 13:32:50,851 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring embedded WebApplicationContext : log : 
+2025-02-13 13:32:50,852 : org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext : INFO --> Root WebApplicationContext: initialization completed in 845 ms : prepareWebApplicationContext : 
+2025-02-13 13:32:50,936 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
+2025-02-13 13:32:50,966 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
+2025-02-13 13:32:50,983 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
+2025-02-13 13:32:51,128 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
+2025-02-13 13:32:51,145 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
+2025-02-13 13:32:51,328 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7291b3a2 : checkFailFast : 
+2025-02-13 13:32:51,330 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
+2025-02-13 13:32:51,379 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown : initiateService : 
+2025-02-13 13:32:51,899 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
+2025-02-13 13:32:51,952 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
+2025-02-13 13:32:51,968 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
+2025-02-13 13:32:51,978 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
+2025-02-13 13:32:52,187 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
+2025-02-13 13:32:52,791 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
+2025-02-13 13:32:52,849 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$SIwTl1z5xoMRNqfcVMZ2A.R8MYvAORoIOFQxWW7wKervJk6VHF4Yq  :: [0m : passwordEncoder : 
+2025-02-13 13:32:52,915 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
+2025-02-13 13:32:52,933 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-13 13:32:52,961 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
+2025-02-13 13:32:53,012 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-13 13:32:53,215 : org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer : INFO --> LiveReload server is running on port 35729 : startServer : 
+2025-02-13 13:32:53,237 : org.springframework.boot.web.embedded.tomcat.TomcatWebServer : INFO --> Tomcat started on port 8080 (http) with context path '/' : start : 
+2025-02-13 13:32:53,241 : org.api.events.EventsApplication : INFO --> Started EventsApplication in 3.497 seconds (process running for 3.903) : logStarted : 
+2025-02-13 13:34:17,816 : org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] : INFO --> Initializing Spring DispatcherServlet 'dispatcherServlet' : log : 
+2025-02-13 13:34:17,817 : org.springframework.web.servlet.DispatcherServlet : INFO --> Initializing Servlet 'dispatcherServlet' : initServletBean : 
+2025-02-13 13:34:17,818 : org.springframework.web.servlet.DispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
+2025-02-13 13:37:44,142 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Commencing graceful shutdown. Waiting for active requests to complete : shutDownGracefully : 
+2025-02-13 13:37:44,147 : org.springframework.boot.web.embedded.tomcat.GracefulShutdown : INFO --> Graceful shutdown complete : doShutdown : 
+2025-02-13 13:37:44,149 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
+2025-02-13 13:37:44,151 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
+2025-02-13 13:37:44,155 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
