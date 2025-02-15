@@ -25,6 +25,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -203,10 +204,11 @@ public class Controller {
     @GetMapping("/getrelbycity")
     public ResponseEntity<?> getRelativesAndPresentationsByCity(@RequestParam(value = "city",
                                                                 required = true ) String city,
-                                                                @RequestParam(required = true) GettingType type) {
+                                                                @RequestParam(required = true) GettingType type,
+                                                                    @RequestParam(required = true) UUID userId) {
         List<RelativeByCityPreDto> response = null;
         if(type.equals(GettingType.RECEIVING)){
-            response = relativeService.getRelativeByCityReceiving(city);
+            response = relativeService.getRelativeByCityReceiving(city,userId);
         }else{
             response = relativeService.getRelativeByCityPresenations(city);
         }

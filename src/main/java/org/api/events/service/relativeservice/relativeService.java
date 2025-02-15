@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class relativeService implements IRelativeService {
@@ -95,8 +96,8 @@ public class relativeService implements IRelativeService {
         return relativeRepo.findByCityPresentations(city);
     }
     @Override
-    public List<RelativeByCityPreDto> getRelativeByCityReceiving(String city){
-        return relativeRepo.findByCityReceiving(city);
+    public List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId){
+        return relativeRepo.findByCityReceiving(city, userId);
     }
 
     @Override

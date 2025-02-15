@@ -91,8 +91,8 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
             "p.gold_in_gm, p.silver_in_gm, p.amount, p.objects) " +
             "FROM relative  r " +
             "JOIN r.receivings p " +
-            "WHERE r.city = :city")
-    List<RelativeByCityPreDto> findByCityReceiving(String city);
+            "WHERE r.city = :city and r.user_id = userId")
+    List<RelativeByCityPreDto> findByCityReceiving(String city,UUID userId);
 
 
 

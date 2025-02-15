@@ -4,6 +4,7 @@ import org.api.events.dto.*;
 import org.api.events.models.Relative;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface IRelativeService {
     List<Relative> getAllRelatives();
@@ -14,7 +15,7 @@ public interface IRelativeService {
     RelativeResponceDto signUp(SignUpDTO dto);
 
     List<RelativeByCityPreDto> getRelativeByCityPresenations(String city);
-    List<RelativeByCityPreDto> getRelativeByCityReceiving(String city);
+    List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId);
 
 
     List<AmountFromRelatives> getAmountFromRelativesPresenations();
