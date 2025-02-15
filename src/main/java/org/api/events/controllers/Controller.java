@@ -57,7 +57,31 @@ public class Controller {
      * @return
      */
     @GetMapping("/get")
-    @Operation(summary = "THIS IS FOR TESTING API",description = "This a testing api for testing the application....")
+    @Operation(summary = "THIS IS FOR TESTING API",description = "This a testing api for testing the application...." +
+            "The choice between using headers or cookies to get user data such as user ID and token depends on several factors, including your application's security requirements, how you handle authentication, and what makes the most sense for your architecture.\n" +
+            "\n" +
+            "Here are the key points for both methods:\n" +
+            "\n" +
+            "Using Headers\n" +
+            "Security: Headers are not stored on the client side after the request is made, which can reduce the risk of client-side attacks.\n" +
+            "\n" +
+            "Stateless: Using headers supports stateless requests, which are a common feature of RESTful APIs.\n" +
+            "\n" +
+            "Control: You have more control over when and how headers are sent with each request.\n" +
+            "\n" +
+            "Using Cookies\n" +
+            "Client-Side Storage: Cookies are stored on the client side, and they can persist across sessions.\n" +
+            "\n" +
+            "Ease of Use: Cookies are automatically sent with every HTTP request to the server, so you don't have to manually include them in each request.\n" +
+            "\n" +
+            "Cross-Origin Requests: Cookies can be tricky with cross-origin requests (CORS), which can require additional configuration.\n" +
+            "\n" +
+            "Which to Use?\n" +
+            "For APIs: Headers are often the preferred method for APIs because they promote statelessness and give you more control over authentication and authorization.\n" +
+            "\n" +
+            "For Web Applications: Cookies can be more convenient for web applications where maintaining session state across multiple requests is necessary.\n" +
+            "\n" +
+            "Ultimately, the best approach depends on your specific needs and security considerations. For example, if you're building a RESTful API, headers are generally a better choice. For traditional web applications, cookies might be more convenient.")
     public ResponseEntity<String> testing(){
         return ResponseEntity.status(200).body("Hello this is for Testing the api application");
     }
@@ -72,9 +96,11 @@ public class Controller {
      */
     @PostMapping("createPre")
     @Operation(summary = "THIS IS CRATING A NEW PRESENTATION",description = "User input taken from PRESENTATION form and save into db")
-    public ResponseEntity<?> creatingPre(@RequestBody Dto dto){
+    public ResponseEntity<?> creatingPre(@RequestBody Dto dto ){
+        // added
+        UUID userId = UUID.randomUUID();
         Relative relative = dtoMapper.dtoToRelative(dto);
-        Optional<Relative> relative1 =  relativeService.getRelative(relative.getFirstName(), relative.getLastName(), relative.getCity());
+        Optional<Relative> relative1 =  relativeService.getRelative(relative.getFirstName(), relative.getLastName(), relative.getCity(),userId);
         if(relative1.isEmpty()){
             log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
         }
@@ -99,8 +125,11 @@ public class Controller {
     @PostMapping("/createRec")
     @Operation(summary = "THIS IS CREATING A NEW RECEIVING",description = "User input capturing from user input form filling after save into db")
     public ResponseEntity<?> creatingRec(@RequestBody Dto dto){
+        // added
+        UUID userId = UUID.randomUUID();
+
         Relative relative = dtoMapper.dtoToRelative(dto);
-        if(!relativeService.isRelative(relative)){
+        if(!relativeService.isRelative(relative,userId)){
             relativeService.saveRelative(relative);
         }
         Receiving receiving = dtoMapper.dtoToReceiving(dto);
@@ -123,7 +152,9 @@ public class Controller {
     @Operation(summary = "THIS API WORKS FOR GETTING ALL RELATIVES",description = "If you want to know how many relatives he have then," +
             " this api fetch all relatives from db...")
     public ResponseEntity<List<Relative>> getAllRelative() {
-        return ResponseEntity.status(200).body(relativeService.getAllRelatives());
+        // get
+        UUID userId = UUID.randomUUID();
+        return ResponseEntity.status(200).body(relativeService.getAllRelatives(userId));
     }
 
     /**
@@ -133,7 +164,9 @@ public class Controller {
     @GetMapping("/allpre")
     @Operation(summary = "THIS API FOR GETTING ALL PRESENTATIONS LIFE TIME",description = "If User want to know how many Presentations getting from relatives")
     public ResponseEntity<List<RespPresentationDto>> getAllPresentations() {
-        List<Presentation> pres = presentationService.getAll();
+        // added
+        UUID userId = UUID.randomUUID();
+        List<Presentation> pres = presentationService.getAll(userId);
         List<RespPresentationDto> resp = dtoMapper.presentationToRespDtoList(pres);
         return ResponseEntity.status(200).body(resp);
     }
@@ -144,7 +177,9 @@ public class Controller {
      */
     @GetMapping("/getallrec")
     public ResponseEntity<List<RespRecivingDTO>> getAllReceiving() {
-        List<Receiving> rev = receivingService.getAllRecivings();
+        // added
+        UUID userId = UUID.randomUUID();
+        List<Receiving> rev = receivingService.getAllRecivings(userId);
         List<RespRecivingDTO> respDto = dtoMapper.recivingToRespDtoList(rev);
         return ResponseEntity.status(200).body(respDto);
     }
@@ -156,7 +191,9 @@ public class Controller {
      */
     @GetMapping("/getallcity")
     public ResponseEntity<List<String>> getAllCity() {
-        List<String> listCitys = relativeService.getAllUniqueCitys();
+        /// add
+        UUID userId = UUID.randomUUID();
+        List<String> listCitys = relativeService.getAllUniqueCitys(userId);
         return ResponseEntity.status(200).body(listCitys);
     }
 
@@ -165,24 +202,27 @@ public class Controller {
     public ResponseEntity<?> totals(@RequestParam(required = true, value = "type") TotalReceivedType type,
                                     @RequestParam(required = true,value = "getType") GettingType getType) {
 
+        // added
+        UUID userId = UUID.randomUUID();
+
         TotalReceived resp = new TotalReceived();
         if (type.equals(TotalReceivedType.GOLD_IN_GM) && getType.equals(GettingType.RECEIVING)){
-            resp.setReceived_gm_or_INR(receivingService.getTotalGold());
+            resp.setReceived_gm_or_INR(receivingService.getTotalGold(userId));
             resp.setType(TotalReceivedType.GOLD_IN_GM);
         }else if(type.equals(TotalReceivedType.GOLD_IN_GM) && getType.equals(GettingType.PRESENTATION)) {
-            resp.setReceived_gm_or_INR(presentationService.getTotalGold());
+            resp.setReceived_gm_or_INR(presentationService.getTotalGold(userId));
             resp.setType(TotalReceivedType.GOLD_IN_GM);
         }else if(type.equals(TotalReceivedType.SILVER_IN_GM) && getType.equals(GettingType.RECEIVING) ) {
-            resp.setReceived_gm_or_INR(receivingService.getTotalSliver());
+            resp.setReceived_gm_or_INR(receivingService.getTotalSliver(userId));
             resp.setType(TotalReceivedType.SILVER_IN_GM);
         }else if(type.equals(TotalReceivedType.SILVER_IN_GM) && getType.equals(GettingType.PRESENTATION) ) {
-            resp.setReceived_gm_or_INR(presentationService.getTotalSliver());
+            resp.setReceived_gm_or_INR(presentationService.getTotalSliver(userId));
             resp.setType(TotalReceivedType.SILVER_IN_GM);
         }else if(type.equals(TotalReceivedType.AMOUNT_IN_INR) && getType.equals(GettingType.RECEIVING) ) {
-            resp.setReceived_gm_or_INR(receivingService.getTotalAmount());
+            resp.setReceived_gm_or_INR(receivingService.getTotalAmount(userId));
             resp.setType(TotalReceivedType.AMOUNT_IN_INR);
         }else if(type.equals(TotalReceivedType.AMOUNT_IN_INR) && getType.equals(GettingType.PRESENTATION) ) {
-            resp.setReceived_gm_or_INR(presentationService.getTotalAmount());
+            resp.setReceived_gm_or_INR(presentationService.getTotalAmount(userId));
             resp.setType(TotalReceivedType.AMOUNT_IN_INR);
         }
         return ResponseEntity.status(200).body(resp);
@@ -206,11 +246,12 @@ public class Controller {
                                                                 required = true ) String city,
                                                                 @RequestParam(required = true) GettingType type,
                                                                     @RequestParam(required = true) UUID userId) {
+
         List<RelativeByCityPreDto> response = null;
         if(type.equals(GettingType.RECEIVING)){
             response = relativeService.getRelativeByCityReceiving(city,userId);
         }else{
-            response = relativeService.getRelativeByCityPresenations(city);
+            response = relativeService.getRelativeByCityPresenations(city,userId);
         }
         if(response == null){
             throw new NotFoundException("not found data");
@@ -221,12 +262,13 @@ public class Controller {
 
     @GetMapping("/totalgifts")
     public ResponseEntity<?> getRelativeByGifts(@RequestParam(required = true) GettingType type){
-
+    // added
+        UUID userId = UUID.randomUUID();
         List<GiftsFromRelatives> response = null;
         if(type.equals(GettingType.RECEIVING)){
-            response = relativeService.getGiftsFromRelativesReceiving();
+            response = relativeService.getGiftsFromRelativesReceiving(userId);
         }else{
-            response = relativeService. getGiftsFromRelativesPresenations();
+            response = relativeService. getGiftsFromRelativesPresenations(userId);
         }
         if(response == null){
             throw new NotFoundException("not found data");
@@ -237,12 +279,14 @@ public class Controller {
 
     @GetMapping("/totalgold")
     public ResponseEntity<?> getRelativeByGold(@RequestParam(required = true) GettingType type){
+        // added
 
+        UUID userId = UUID.randomUUID();
         List<GoldFromRelatives> response = null;
         if(type.equals(GettingType.RECEIVING)){
-            response = relativeService.getGoldFromRelativesReceiving();
+            response = relativeService.getGoldFromRelativesReceiving(userId);
         }else{
-            response = relativeService.getGoldFromRelativesPresenations();
+            response = relativeService.getGoldFromRelativesPresenations(userId);
         }
         if(response == null){
             throw new NotFoundException("not found data");
@@ -252,12 +296,13 @@ public class Controller {
 
     @GetMapping("/totalsilver")
     public ResponseEntity<?> getRelativeBySilver(@RequestParam(required = true) GettingType type){
-
+    // added
+        UUID userId = UUID.randomUUID();
         List<SilverFromRelatives> response = null;
         if(type.equals(GettingType.RECEIVING)){
-            response = relativeService.getSilverFromRelativesReceiving();
+            response = relativeService.getSilverFromRelativesReceiving(userId);
         }else{
-            response = relativeService.getSilverFromRelativesPresenations();
+            response = relativeService.getSilverFromRelativesPresenations(userId);
         }
         if(response == null){
             throw new NotFoundException("not found data");
@@ -268,11 +313,14 @@ public class Controller {
     @GetMapping("/totalamount")
     public ResponseEntity<?> getRelativeByAmount(@RequestParam(required = true) GettingType type){
 
+
+        // added
+        UUID userId = UUID.randomUUID();
         List<AmountFromRelatives> response = null;
         if(type.equals(GettingType.RECEIVING)){
-            response = relativeService. getAmountFromRelativesReceiving();
+            response = relativeService. getAmountFromRelativesReceiving(userId);
         }else{
-            response = relativeService.getAmountFromRelativesPresenations();
+            response = relativeService.getAmountFromRelativesPresenations(userId);
         }
         if(response == null){
             throw new NotFoundException("not found data");

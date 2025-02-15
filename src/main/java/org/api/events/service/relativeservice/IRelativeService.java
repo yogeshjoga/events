@@ -7,28 +7,28 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IRelativeService {
-    List<Relative> getAllRelatives();
+    List<Relative> getAllRelatives(UUID userId);
     Relative saveRelative(Relative relative);
-    Optional<Relative> getRelative(String firstName, String lastName, String city);
-    Boolean isRelative(Relative relative);
-    List<String> getAllUniqueCitys();
-    RelativeResponceDto signUp(SignUpDTO dto);
+    Optional<Relative> getRelative(String firstName, String lastName, String city,UUID userId);
+    Boolean isRelative(Relative relative,UUID userId);
+    List<String> getAllUniqueCitys(UUID userId);
+    RelativeResponceDto signUp(SignUpDTO dto,UUID userId);
 
-    List<RelativeByCityPreDto> getRelativeByCityPresenations(String city);
+    List<RelativeByCityPreDto> getRelativeByCityPresenations(String city,UUID userId);
     List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId);
 
 
-    List<AmountFromRelatives> getAmountFromRelativesPresenations();
-    List<AmountFromRelatives> getAmountFromRelativesReceiving();
+    List<AmountFromRelatives> getAmountFromRelativesPresenations(UUID userId);
+    List<AmountFromRelatives> getAmountFromRelativesReceiving(UUID userId);
 
-    List<GiftsFromRelatives> getGiftsFromRelativesPresenations();
-    List<GiftsFromRelatives> getGiftsFromRelativesReceiving();
+    List<GiftsFromRelatives> getGiftsFromRelativesPresenations(UUID userId);
+    List<GiftsFromRelatives> getGiftsFromRelativesReceiving(UUID userId);
 
-    List<GoldFromRelatives> getGoldFromRelativesPresenations();
-    List<GoldFromRelatives> getGoldFromRelativesReceiving();
+    List<GoldFromRelatives> getGoldFromRelativesPresenations(UUID userId);
+    List<GoldFromRelatives> getGoldFromRelativesReceiving(UUID userId);
 
-    List<SilverFromRelatives> getSilverFromRelativesPresenations();
-    List<SilverFromRelatives> getSilverFromRelativesReceiving();
+    List<SilverFromRelatives> getSilverFromRelativesPresenations(UUID userId);
+    List<SilverFromRelatives> getSilverFromRelativesReceiving(UUID userId);
 
 
 

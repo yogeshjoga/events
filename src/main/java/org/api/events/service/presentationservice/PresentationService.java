@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -21,22 +22,22 @@ public class PresentationService implements IPresentationService {
     }
 
     @Override
-    public List<Presentation> getAll() {
-        return presentationRepo.findAll();
+    public List<Presentation> getAll(UUID userId) {
+        return presentationRepo.findAll(userId);
     }
 
     @Override
-    public Double getTotalGold(){
-        return presentationRepo.findTotalGold_in_gm();
+    public Double getTotalGold(UUID userId){
+        return presentationRepo.findTotalGold_in_gm(userId);
     }
 
     @Override
-    public Double getTotalSliver(){
-        return presentationRepo.findTotalSilver_in_gm();
+    public Double getTotalSliver(UUID userId){
+        return presentationRepo.findTotalSilver_in_gm(userId);
     }
 
     @Override
-    public Double getTotalAmount(){
-        return presentationRepo.findTotalAmount();
+    public Double getTotalAmount(UUID userId){
+        return presentationRepo.findTotalAmount(userId);
     }
 }

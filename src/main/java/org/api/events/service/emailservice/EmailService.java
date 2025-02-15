@@ -20,6 +20,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 public class EmailService implements IEmailService {
@@ -81,9 +82,10 @@ public class EmailService implements IEmailService {
 
 
     @Override
-    public VerficationState verifyOTP(String email, String otp) {
+    public VerficationState verifyOTP(String email, String otp, UUID userId) {
+
        OTP newOTP = otpRepo.findByRelativeEmail(email);
-       Relative relative = relativeRepo.findByEmail(email);
+       Relative relative = relativeRepo.findByEmail(email,userId);
        if (newOTP == null) {
            throw new EmailNotFoundException("Please check your email... or Verify the Email");
        }
@@ -97,7 +99,7 @@ public class EmailService implements IEmailService {
            otpRepo.delete(newOTP);
           relative.setState(VerficationState.VERFICATION_COMPLETED);
            // Updating the relative verification status
-           Relative respRel = relativeRepo.findByEmail(email);
+           Relative respRel = relativeRepo.findByEmail(email,userId);
            respRel.setState(VerficationState.VERFICATION_COMPLETED);
            relativeRepo.save(respRel);
            //relativeRepo.save(relative);

@@ -10,6 +10,7 @@ import org.api.events.service.emailservice.IEmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -38,7 +39,7 @@ public class relativeService implements IRelativeService {
 
 
     @Override
-    public List<Relative> getAllRelatives() {
+    public List<Relative> getAllRelatives(UUID userId) {
         return relativeRepo.findAll();
     }
 
@@ -48,30 +49,30 @@ public class relativeService implements IRelativeService {
     }
 
     @Override
-    public Optional<Relative> getRelative(String firstName, String lastName, String city) {
+    public Optional<Relative> getRelative(String firstName, String lastName, String city, UUID userId) {
         log.info("\u001B[1;32m :: Get relative By FirstName LastName City :: \u001B[0m");
-       return relativeRepo.findRelativeByFirstNameAndLastNameAndCity(firstName,lastName,city);
+       return relativeRepo.findRelativeByFirstNameAndLastNameAndCityAndUserId(firstName,lastName,city,userId);
     }
 
     @Override
-    public Boolean isRelative(Relative relative) {
-        Optional<Relative> rel = relativeRepo.findRelativeByFirstNameAndLastNameAndCity(relative.getFirstName(),relative.getLastName(),relative.getCity());
+    public Boolean isRelative(Relative relative, UUID userId) {
+        Optional<Relative> rel = relativeRepo.findRelativeByFirstNameAndLastNameAndCityAndUserId(relative.getFirstName(),relative.getLastName(),relative.getCity(), userId);
         return rel.isPresent();
     }
 
     @Override
-    public List<String> getAllUniqueCitys(){
-        return relativeRepo.findUniqueCitiesByCity();
+    public List<String> getAllUniqueCitys(UUID userId){
+        return relativeRepo.findUniqueCitiesByCity(userId);
     }
 
     @Override
-    public RelativeResponceDto signUp(SignUpDTO dto) {
+    public RelativeResponceDto signUp(SignUpDTO dto, UUID userId) {
         if(dto.getEmail() == null || dto.getEmail().isEmpty()){
             log.info("\u001B[1;31m :: EMAIL EMPTY EXCEPTION RAISED :: \u001B[0m");
             throw new EmailNotFoundException("Email is empty... Please enter a valid email");
         }
         Relative rel = objectMapper.convertValue(dto, Relative.class);
-        if(relativeRepo.findByEmail(rel.getEmail()) != null){
+        if(relativeRepo.findByEmail(rel.getEmail(),userId) != null){
             log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
             throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
         }
@@ -88,12 +89,13 @@ public class relativeService implements IRelativeService {
 
     // Testing method
     public List<AllCitysDto> getAllCitys(){
-        return relativeRepo.findAllByCity();
+        UUID userId = UUID.randomUUID();
+        return relativeRepo.findAllByCity(userId);
     }
 
     @Override
-    public List<RelativeByCityPreDto> getRelativeByCityPresenations(String city){
-        return relativeRepo.findByCityPresentations(city);
+    public List<RelativeByCityPreDto> getRelativeByCityPresenations(String city, UUID userId){
+        return relativeRepo.findByCityPresentations(city,userId);
     }
     @Override
     public List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId){
@@ -101,40 +103,40 @@ public class relativeService implements IRelativeService {
     }
 
     @Override
-    public List<AmountFromRelatives> getAmountFromRelativesPresenations(){
-        return relativeRepo.findAmountFromRelativesPresentations();
+    public List<AmountFromRelatives> getAmountFromRelativesPresenations(UUID userId){
+        return relativeRepo.findAmountFromRelativesPresentations(userId);
     }
     @Override
-    public List<AmountFromRelatives> getAmountFromRelativesReceiving(){
-        return relativeRepo.findAmountFromRelativesReceiving();
-    }
-
-    @Override
-    public List<GiftsFromRelatives> getGiftsFromRelativesPresenations(){
-        return relativeRepo.findGiftsFromRelativesPresentations();
-    }
-    @Override
-    public List<GiftsFromRelatives> getGiftsFromRelativesReceiving(){
-        return relativeRepo.findGiftsFromRelativesReceiving();
+    public List<AmountFromRelatives> getAmountFromRelativesReceiving(UUID userId){
+        return relativeRepo.findAmountFromRelativesReceiving(userId);
     }
 
     @Override
-    public List<GoldFromRelatives> getGoldFromRelativesPresenations(){
-        return relativeRepo.findGoldFromRelativesPresentations();
+    public List<GiftsFromRelatives> getGiftsFromRelativesPresenations(UUID userId){
+        return relativeRepo.findGiftsFromRelativesPresentations(userId);
     }
     @Override
-    public List<GoldFromRelatives> getGoldFromRelativesReceiving(){
-        return relativeRepo.findGoldFromRelativesReceiving();
+    public List<GiftsFromRelatives> getGiftsFromRelativesReceiving(UUID userId){
+        return relativeRepo.findGiftsFromRelativesReceiving(userId);
+    }
+
+    @Override
+    public List<GoldFromRelatives> getGoldFromRelativesPresenations(UUID userId){
+        return relativeRepo.findGoldFromRelativesPresentations(userId);
+    }
+    @Override
+    public List<GoldFromRelatives> getGoldFromRelativesReceiving(UUID userId){
+        return relativeRepo.findGoldFromRelativesReceiving(userId);
     }
 
 
     @Override
-    public List<SilverFromRelatives> getSilverFromRelativesPresenations(){
-        return relativeRepo.findSilverFromRelativesPresentations();
+    public List<SilverFromRelatives> getSilverFromRelativesPresenations(UUID userId){
+        return relativeRepo.findSilverFromRelativesPresentations(userId);
     }
     @Override
-    public List<SilverFromRelatives> getSilverFromRelativesReceiving(){
-        return relativeRepo.findSilverFromRelativesReceiving();
+    public List<SilverFromRelatives> getSilverFromRelativesReceiving(UUID userId){
+        return relativeRepo.findSilverFromRelativesReceiving(userId);
     }
 
 }

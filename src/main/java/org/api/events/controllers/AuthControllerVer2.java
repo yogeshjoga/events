@@ -17,6 +17,8 @@ import org.springframework.http.ResponseEntity;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
@@ -52,7 +54,9 @@ public class AuthControllerVer2 {
 
     @PostMapping("/otp")
     public ResponseEntity<?> otpValidation(@RequestBody OTPdto dto){
-        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
+        // added
+        UUID userId = UUID.randomUUID();
+        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp(), userId);
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
         }

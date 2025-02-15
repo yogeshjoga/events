@@ -19,6 +19,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.UUID;
+
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
@@ -47,14 +49,16 @@ public class AuthController {
                                 "<p>Require parameters <ul><li>userName</li>" +
                                 "<li>password </li> </ul></p>")
     public ResponseEntity<?> signUp(@RequestBody SignUpDTO dto){
-        RelativeResponceDto resp = relativeService.signUp(dto);
+        UUID userId = UUID.randomUUID();
+        RelativeResponceDto resp = relativeService.signUp(dto,userId);
         log.info("\u001B[1;32m :: SIGNUP SUCCESSFULL :: \u001B[0m");
         return ResponseEntity.status(200).body(resp);
     }
 
     @PostMapping("/otp")
     public ResponseEntity<?> otpValidation(@RequestBody OTPdto dto){
-        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
+        UUID userId = UUID.randomUUID();
+        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp(),userId);
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
         }
