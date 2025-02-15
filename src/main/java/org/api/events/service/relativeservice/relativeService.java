@@ -72,7 +72,7 @@ public class relativeService implements IRelativeService {
             throw new EmailNotFoundException("Email is empty... Please enter a valid email");
         }
         Relative rel = objectMapper.convertValue(dto, Relative.class);
-        if(relativeRepo.findByEmail(rel.getEmail(),userId) != null){
+        if(relativeRepo.findByEmailAndUserId(rel.getEmail(),userId) != null){
             log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
             throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
         }

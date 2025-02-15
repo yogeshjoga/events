@@ -19,6 +19,6 @@ public interface PresentationRepo extends JpaRepository<Presentation, UUID> {
     Double findTotalAmount(@Param("userId") UUID userId);
 
 
-    List<Presentation> findAll(@Param("userId") UUID userId);
+    List<Presentation> findAllByUserId(@Param("userId") UUID userId);
 
 }

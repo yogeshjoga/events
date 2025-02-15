@@ -19,5 +19,5 @@ public interface ReceivingRepo extends JpaRepository<Receiving, UUID> {
     Double findTotalAmount(@Param("userId") UUID userId);
 
 
-    List<Receiving> findAll(UUID userId);
+    List<Receiving> findAllByUserId(UUID userId);
 }

@@ -20,7 +20,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     //@Query("SELECT * FROM relative WHERE firstName = :firstName and lastName = :lastName and city = :city");
     Optional<Relative> findRelativeByFirstNameAndLastNameAndCityAndUserId(String firstName, String lastName, String city,@Param("userId") UUID userId);
 
-    List<String> findByCity(String city,@Param("userId") UUID userId);
+    List<String> findByCityAndUserId(String city,@Param("userId") UUID userId);
 
 
     // paging and sorting functions
@@ -31,7 +31,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     @Query("SELECT DISTINCT city FROM relative")
     List<String> findUniqueCitiesByCity(@Param("userId") UUID userId);
 
-    Relative findByEmail(String email,@Param("userId") UUID userId);
+    Relative findByEmailAndUserId(String email,@Param("userId") UUID userId);
 
     List<Receiving> findAllByUserId(UUID userId);
 

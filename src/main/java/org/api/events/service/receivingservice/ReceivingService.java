@@ -25,7 +25,7 @@ public class ReceivingService implements IReceivingService {
 
     @Override
     public List<Receiving> getAllRecivings(UUID userId){
-        return receivingRepo.findAll(userId);
+        return receivingRepo.findAllByUserId(userId);
     }
 
 

@@ -23,7 +23,7 @@ public class PresentationService implements IPresentationService {
 
     @Override
     public List<Presentation> getAll(UUID userId) {
-        return presentationRepo.findAll(userId);
+        return presentationRepo.findAllByUserId(userId);
     }
 
     @Override
