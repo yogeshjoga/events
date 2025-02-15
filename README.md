@@ -44,7 +44,6 @@
 20. GetTotalNumberOfGiftsPresentated --
 21. GetTotalNumberOfGiftsRecevings --
 
-
 ```sql
  //  @Query("SELECT new org.api.events.dto.AllCitysDto(r.city) FROM relative  r WHERE r.city = :city")
     @Query("SELECT DISTINCT new org.api.events.dto.AllCitysDto(r.city) FROM relative r")
@@ -57,9 +56,15 @@
 1. SignUp through Email
 2. Singup Through PhoneNumber
 3. Email and PhoneNumber verification (make email verfication only)
-4.
+
+
+# OTP
+
+![image.png](assets/image.png)
 
 # Schema Design
+
+
 
 # Class design
 
@@ -68,6 +73,9 @@ Log trace print thick bold
 ```
 log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
 ```
+
+![image.png](assets/classdesign.png)
+
 
 
 
