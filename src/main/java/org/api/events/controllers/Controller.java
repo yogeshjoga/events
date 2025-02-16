@@ -29,7 +29,7 @@ import java.util.UUID;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app","http://localhost:5173/"})
 @RequestMapping("/")
 @Tag(name = "MAIN CONTROLLER FOR ALL BASIC INFO AND QUERYING", description = "All querying apis ")
 public class Controller {

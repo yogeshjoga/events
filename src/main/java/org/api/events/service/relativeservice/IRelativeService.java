@@ -12,7 +12,7 @@ public interface IRelativeService {
     Optional<Relative> getRelative(String firstName, String lastName, String city,UUID userId);
     Boolean isRelative(Relative relative,UUID userId);
     List<String> getAllUniqueCitys(UUID userId);
-    RelativeResponceDto signUp(SignUpDTO dto,UUID userId);
+    RelativeResponceDto signUp(SignUpDTO dto);
 
     List<RelativeByCityPreDto> getRelativeByCityPresenations(String city,UUID userId);
     List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId);

@@ -50,7 +50,7 @@ public class AuthController {
                                 "<li>password </li> </ul></p>")
     public ResponseEntity<?> signUp(@RequestBody SignUpDTO dto){
         UUID userId = UUID.randomUUID();
-        RelativeResponceDto resp = relativeService.signUp(dto,userId);
+        RelativeResponceDto resp = relativeService.signUp(dto);
         log.info("\u001B[1;32m :: SIGNUP SUCCESSFULL :: \u001B[0m");
         return ResponseEntity.status(200).body(resp);
     }
@@ -58,7 +58,7 @@ public class AuthController {
     @PostMapping("/otp")
     public ResponseEntity<?> otpValidation(@RequestBody OTPdto dto){
         UUID userId = UUID.randomUUID();
-        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp(),userId);
+        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
         }

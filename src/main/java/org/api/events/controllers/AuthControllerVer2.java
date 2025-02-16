@@ -1,7 +1,6 @@
 package org.api.events.controllers;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.api.events.constents.VerficationState;
@@ -14,16 +13,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
-
 import java.util.UUID;
-
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/api/auth/v2/")
-@CrossOrigin({"http://localhost:8081/register"})
+@CrossOrigin({"http://localhost:8081/register","http://localhost:5173/"})
 @Tag(name = "THIS IS THE NEW VERSION API VERSION 2 AUTH CONTROLLER", description = "This is for " +
         "User based auth controller not a relative based its updated version")
 public class AuthControllerVer2 {
@@ -56,7 +52,7 @@ public class AuthControllerVer2 {
     public ResponseEntity<?> otpValidation(@RequestBody OTPdto dto){
         // added
         UUID userId = UUID.randomUUID();
-        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp(), userId);
+        VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
         }

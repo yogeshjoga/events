@@ -66,13 +66,13 @@ public class relativeService implements IRelativeService {
     }
 
     @Override
-    public RelativeResponceDto signUp(SignUpDTO dto, UUID userId) {
+    public RelativeResponceDto signUp(SignUpDTO dto) {
         if(dto.getEmail() == null || dto.getEmail().isEmpty()){
             log.info("\u001B[1;31m :: EMAIL EMPTY EXCEPTION RAISED :: \u001B[0m");
             throw new EmailNotFoundException("Email is empty... Please enter a valid email");
         }
         Relative rel = objectMapper.convertValue(dto, Relative.class);
-        if(relativeRepo.findByEmailAndUserId(rel.getEmail(),userId) != null){
+        if(relativeRepo.findByEmail(rel.getEmail()) != null){
             log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
             throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
         }

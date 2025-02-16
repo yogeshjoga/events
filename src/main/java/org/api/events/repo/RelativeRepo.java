@@ -31,7 +31,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     @Query("SELECT DISTINCT city FROM relative")
     List<String> findUniqueCitiesByCity(@Param("userId") UUID userId);
 
-    Relative findByEmailAndUserId(String email,@Param("userId") UUID userId);
+    Relative findByEmail(String email);
 
     List<Receiving> findAllByUserId(UUID userId);
 
