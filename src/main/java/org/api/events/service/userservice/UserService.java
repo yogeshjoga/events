@@ -6,6 +6,7 @@ import org.api.events.dto.RelativeResponceDto;
 import org.api.events.dto.SignUpDTO;
 import org.api.events.exceptions.EmailAlreadyExisted;
 import org.api.events.exceptions.EmailNotFoundException;
+import org.api.events.exceptions.UserNotFoundException;
 import org.api.events.models.User;
 import org.api.events.repo.UserRepo;
 import org.api.events.service.emailservice.FIEmailService2;
@@ -42,7 +43,7 @@ public class UserService implements IUserService {
             throw new EmailNotFoundException("Email is empty... Please enter a valid email");
         }
         User user = objectMapper.convertValue(dto, User.class);
-        if(userRepo.findByEmail(user.getEmail()) != null){
+        if(userRepo.findByEmail(user.getEmail()).isPresent()){
             log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
             throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
         }
@@ -52,5 +53,16 @@ public class UserService implements IUserService {
         log.info("\u001B[1;32m :: OTP EMAIL SEND TO  "+ user.getEmail() +"  :: \u001B[0m");
         emailService.sendVerificationEmail(user.getEmail(),user);
         return objectMapper.convertValue(user, RelativeResponceDto.class);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        if(email == null || email.isEmpty()){
+            throw new EmailNotFoundException("Email is empty... Please enter a valid email");
+        }
+        if(userRepo.findByEmail(email).isPresent()){
+            return userRepo.findByEmail(email).get();
+        }
+        throw new UserNotFoundException("user not found from this email id please check your email id or re-enter");
     }
 }

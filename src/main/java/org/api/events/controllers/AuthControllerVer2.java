@@ -1,6 +1,5 @@
 package org.api.events.controllers;
 
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.api.events.constents.VerficationState;
@@ -35,8 +34,6 @@ public class AuthControllerVer2 {
     private IUserService userService;
 
 
-
-
     @PostMapping("/signup")
     @Operation(summary = "This is Post method for new User SignUp",
             description= "<h2> This is the SignUp api for new User creation </h2>" +
@@ -50,14 +47,11 @@ public class AuthControllerVer2 {
 
     @PostMapping("/otp")
     public ResponseEntity<?> otpValidation(@RequestBody OTPdto dto){
-        // added
-        UUID userId = UUID.randomUUID();
         VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
         }
         return ResponseEntity.status(404).body("Wrong OTP please try again");
     }
-
 
 }

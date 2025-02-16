@@ -1,7 +1,7 @@
 package org.api.events.controlleradvice;
 
 
-import org.api.events.exceptions.UserNotFound;
+import org.api.events.exceptions.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -13,7 +13,13 @@ public class ControllerAdvice {
      * @param e
      * @return
      */
-    @ExceptionHandler({UserNotFound.class})
+    @ExceptionHandler({UserNotFound.class,
+            EmailAlreadyExisted.class,
+            EmailNotFoundException.class,
+            InvalidOTPException.class,
+            InvalidOTPException.class,
+            OTPExpairedException.class,
+            UserNotFoundException.class})
     public ResponseEntity<String> notFound(Exception e) {
         return ResponseEntity.status(404).body(e.getMessage());
     }
