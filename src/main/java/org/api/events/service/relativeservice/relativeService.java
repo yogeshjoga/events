@@ -1,6 +1,7 @@
 package org.api.events.service.relativeservice;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.transaction.Transactional;
 import org.api.events.dto.*;
 import org.api.events.exceptions.EmailAlreadyExisted;
 import org.api.events.exceptions.EmailNotFoundException;
@@ -24,16 +25,6 @@ public class relativeService implements IRelativeService {
 
     @Autowired
     private RelativeRepo relativeRepo;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Autowired
-    private IEmailService emailService;
-
 
 
 
@@ -65,23 +56,29 @@ public class relativeService implements IRelativeService {
         return relativeRepo.findUniqueCitiesByCity(userId);
     }
 
+    /**
+     * @Depricated
+     * @param dto
+     * @return
+     */
     @Override
     public RelativeResponceDto signUp(SignUpDTO dto) {
-        if(dto.getEmail() == null || dto.getEmail().isEmpty()){
-            log.info("\u001B[1;31m :: EMAIL EMPTY EXCEPTION RAISED :: \u001B[0m");
-            throw new EmailNotFoundException("Email is empty... Please enter a valid email");
-        }
-        Relative rel = objectMapper.convertValue(dto, Relative.class);
-        if(relativeRepo.findByEmail(rel.getEmail()) != null){
-            log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
-            throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
-        }
-        String password = bCryptPasswordEncoder.encode(dto.getPassword());
-        rel.setPassword(password);
-        relativeRepo.save(rel);
-        log.info("\u001B[1;32m :: OTP EMAIL SEND TO  "+ rel.getEmail() +"  :: \u001B[0m");
-        emailService.sendVerificationEmail(rel.getEmail(),rel);
-        return objectMapper.convertValue(rel, RelativeResponceDto.class);
+//        if(dto.getEmail() == null || dto.getEmail().isEmpty()){
+//            log.info("\u001B[1;31m :: EMAIL EMPTY EXCEPTION RAISED :: \u001B[0m");
+//            throw new EmailNotFoundException("Email is empty... Please enter a valid email");
+//        }
+//        Relative rel = objectMapper.convertValue(dto, Relative.class);
+//        if(relativeRepo.findByEmail(rel.getEmail()) != null){
+//            log.info("\u001B[1;31m :: EMAIL ALREADY EXISTED :: \u001B[0m");
+//            throw new EmailAlreadyExisted("Email is empty... Please enter a valid email");
+//        }
+//        String password = bCryptPasswordEncoder.encode(dto.getPassword());
+//        rel.setPassword(password);
+//        relativeRepo.save(rel);
+//        log.info("\u001B[1;32m :: OTP EMAIL SEND TO  "+ rel.getEmail() +"  :: \u001B[0m");
+//        emailService.sendVerificationEmail(rel.getEmail(),rel);
+//        return objectMapper.convertValue(rel, RelativeResponceDto.class);
+        return null; // deprecated
     }
 
 

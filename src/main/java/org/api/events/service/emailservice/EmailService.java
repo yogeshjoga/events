@@ -43,8 +43,8 @@ public class EmailService implements IEmailService {
 
     @Override
     public Boolean sendVerificationEmail(String email, Relative relative) {
-        OTP dummyOTP = otpRepo.findByRelativeEmail(email);
-
+       // OTP dummyOTP = otpRepo.findByRelativeEmail(email);
+        OTP dummyOTP= null;
         if(dummyOTP != null){
             log.info("\u001B[1;31m :: OTP ALREADY EXISTED, DELETED OLD OTP :: \u001B[0m");
             otpRepo.delete(dummyOTP);
@@ -84,8 +84,9 @@ public class EmailService implements IEmailService {
     @Override
     public VerficationState verifyOTP(String email, String otp) {
 
-       OTP newOTP = otpRepo.findByRelativeEmail(email);
-       Relative relative = relativeRepo.findByEmail(email);
+        //OTP newOTP = otpRepo.findByRelativeEmail(email);
+        OTP newOTP= null;
+       Relative relative = null; //relativeRepo.findByEmail(email);
        if (newOTP == null) {
            throw new EmailNotFoundException("Please check your email... or Verify the Email");
        }
@@ -99,7 +100,7 @@ public class EmailService implements IEmailService {
            otpRepo.delete(newOTP);
           relative.setState(VerficationState.VERFICATION_COMPLETED);
            // Updating the relative verification status
-           Relative respRel = relativeRepo.findByEmail(email);
+           Relative respRel =null; //relativeRepo.findByEmail(email);
            respRel.setState(VerficationState.VERFICATION_COMPLETED);
            relativeRepo.save(respRel);
            //relativeRepo.save(relative);

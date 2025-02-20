@@ -1,7 +1,9 @@
 package org.api.events.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.constraints.Null;
 import org.api.events.constents.GettingType;
 import org.api.events.constents.Headers;
 import org.api.events.constents.TotalReceivedType;
@@ -10,10 +12,12 @@ import org.api.events.exceptions.NotFoundException;
 import org.api.events.models.Presentation;
 import org.api.events.models.Receiving;
 import org.api.events.models.Relative;
+import org.api.events.models.User;
 import org.api.events.repo.RelativeRepo;
 import org.api.events.service.presentationservice.IPresentationService;
 import org.api.events.service.receivingservice.ReceivingService;
 import org.api.events.service.relativeservice.IRelativeService;
+import org.api.events.service.userservice.UserService;
 import org.api.events.utils.IDtoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,19 +50,28 @@ public class Controller {
 
     @Autowired
     private IDtoMapper dtoMapper;
+
     @Autowired
     private RelativeRepo relativeRepo;
+
     @Autowired
     private ReceivingService receivingService;
+
     @Autowired
     private Dto dto;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
 
     /**
      *
      *
      */
-    private static final UUID getUserIdByUuid( HttpHeaders headers) {
+    private static UUID getUserIdByUuid( HttpHeaders headers) {
         // Getting the UserId from @RequestHeaders
         String strHeader = headers.getFirst(String.valueOf(Headers.USER_ID));
         UUID userId = null;
@@ -77,24 +90,31 @@ public class Controller {
      * @return
      */
     @PostMapping("createPre")
-    @Operation(summary = "THIS IS CRATING A NEW PRESENTATION",description = "User input taken from PRESENTATION form and save into db")
+    @Operation(summary = "THIS IS CRATING A NEW PRESENTATION",
+            tags = {"API Documentation", "Testing Completed"},
+            description = "User input taken from PRESENTATION form and save into db")
     public ResponseEntity<?> creatingPre(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
+        Dto responce = dto;
         UUID userId = getUserIdByUuid(headers);
-        Relative relative = dtoMapper.dtoToRelative(dto);
-        Optional<Relative> relative1 =  relativeService.getRelative(relative.getFirstName(), relative.getLastName(), relative.getCity(),userId);
+        User user = userService.getUserById(userId);
+        Optional<Relative> relative1 =  relativeService.getRelative(dto.getFirstName(), dto.getLastName(), dto.getCity(),userId);
         if(relative1.isEmpty()){
+            // create a new relative otherwise just add presentation
+            // and attach with relative id and user to presentation
+            Relative relative = dtoMapper.dtoToRelative(dto, user);
+            Presentation presentation = dtoMapper.dtoToPresentation(dto,user);
+            relativeService.saveRelative(relative);
+            presentation.setRelative(relative);
+            presentationService.savePresentation(presentation);
             log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
         }
-        log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
+        log.info("\u001B[1;31m :: relative :: \u001B[0m");
 
-        Presentation presentation = dtoMapper.dtoToPresentation(dto);
-        // validate is pending
-        relativeService.saveRelative(relative);
-        // adding the relative
-        presentation.setRelative(relative);
+        Presentation presentation = dtoMapper.dtoToPresentation(dto,user);
+        // Lambda
+        relative1.ifPresent(presentation::setRelative);
         presentationService.savePresentation(presentation);
-        // pending
-        return ResponseEntity.status(201).body(dto);
+        return ResponseEntity.status(201).body(responce);
     }
 
 
@@ -107,12 +127,21 @@ public class Controller {
     @Operation(summary = "THIS IS CREATING A NEW RECEIVING",description = "User input capturing from user input form filling after save into db")
     public ResponseEntity<?> creatingRec(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
         UUID userId = getUserIdByUuid(headers);
-        Relative relative = dtoMapper.dtoToRelative(dto);
-        if(!relativeService.isRelative(relative,userId)){
+        User user = userService.getUserById(userId);
+        Optional<Relative> relative1 =  relativeService.getRelative(dto.getFirstName(), dto.getLastName(), dto.getCity(),userId);
+        if(relative1.isEmpty()){
+            // create a new relative otherwise just add presentation
+            // and attach with relative id and user to presentation
+            Relative relative = dtoMapper.dtoToRelative(dto, user);
+            Receiving receiving = dtoMapper.dtoToReceiving(dto,user,relative);
             relativeService.saveRelative(relative);
+            receivingService.saveReceiving(receiving);
+            log.info("\u001B[1;31m :: Relative and Receiving saved relative :: \u001B[0m");
+        }else {
+            Receiving receiving = dtoMapper.dtoToReceiving(dto, user, relative1.get());
+            receivingService.saveReceiving(receiving);
+            log.info("\u001B[1;31m :: RECEIVING  SAVED INTO DATABASE :: \u001B[0m");
         }
-        Receiving receiving = dtoMapper.dtoToReceiving(dto);
-        receivingService.saveReceiving(receiving);
         return ResponseEntity.status(201).body(dto);
     }
 
@@ -130,7 +159,7 @@ public class Controller {
     @GetMapping("/getallrel")  // the Response not cleared fix the issue
     @Operation(summary = "THIS API WORKS FOR GETTING ALL RELATIVES",description = "If you want to know how many relatives he have then," +
             " this api fetch all relatives from db...")
-    public ResponseEntity<List<Relative>> getAllRelative(@RequestHeader HttpHeaders headers) {
+    public ResponseEntity<?> getAllRelative(@RequestHeader HttpHeaders headers) {
         UUID userId = getUserIdByUuid(headers);
         return ResponseEntity.status(200).body(relativeService.getAllRelatives(userId));
     }
@@ -174,8 +203,8 @@ public class Controller {
 
     // total gold silver amount sum not count
     @GetMapping("/totalrec")
-    public ResponseEntity<?> totals(@RequestParam(required = true, value = "type") TotalReceivedType type,
-                                    @RequestParam(required = true,value = "getType") GettingType getType,
+    public ResponseEntity<?> totals(@RequestParam(required = true, value = "TOTAL_TYPE") TotalReceivedType type,
+                                    @RequestParam(required = true,value = "TYPE") GettingType getType,
                                     @RequestHeader HttpHeaders headers) {
 
         UUID userId = getUserIdByUuid(headers);
@@ -205,7 +234,7 @@ public class Controller {
 
 
     /**
-     * <b>Testing was successfully working Now you can try this methods no need to use dto mappings and extra layers</b>
+     * <b>Testing was successfully working Now you can try these methods no need to use dto mappings and extra layers</b>
      * @return AllCityDTO
      */
 
@@ -217,9 +246,9 @@ public class Controller {
 
 
     @GetMapping("/getrelbycity")
-    public ResponseEntity<?> getRelativesAndPresentationsByCity(@RequestParam(value = "city",
+    public ResponseEntity<?> getRelativesAndPresentationsByCity(@RequestParam(value = "CITY",
                                                                 required = true ) String city,
-                                                                @RequestParam(required = true) GettingType type,
+                                                                @RequestParam(value = "TYPE", required = true) GettingType type,
                                                                 @RequestHeader HttpHeaders headers) {
         UUID userId = getUserIdByUuid(headers);
         List<RelativeByCityPreDto> response = null;
@@ -234,9 +263,9 @@ public class Controller {
         return ResponseEntity.status(200).body(response);
     }
 
-
+// test success
     @GetMapping("/totalgifts")
-    public ResponseEntity<?> getRelativeByGifts(@RequestParam(required = true) GettingType type,
+    public ResponseEntity<?> getRelativeByGifts(@RequestParam(value = "TYPE", required = true) GettingType type,
                                                 @RequestHeader HttpHeaders headers){
         UUID userId = getUserIdByUuid(headers);
         List<GiftsFromRelatives> response = null;
@@ -253,7 +282,7 @@ public class Controller {
 
 
     @GetMapping("/totalgold")
-    public ResponseEntity<?> getRelativeByGold(@RequestParam(required = true) GettingType type,
+    public ResponseEntity<?> getRelativeByGold(@RequestParam(value = "TYPE", required = true) GettingType type,
                                                @RequestHeader HttpHeaders headers){
 
         UUID userId = getUserIdByUuid(headers);
@@ -270,7 +299,7 @@ public class Controller {
     }
 
     @GetMapping("/totalsilver")
-    public ResponseEntity<?> getRelativeBySilver(@RequestParam(required = true) GettingType type,
+    public ResponseEntity<?> getRelativeBySilver(@RequestParam(value = "TYPE", required = true) GettingType type,
                                                  @RequestHeader HttpHeaders headers){
 
         UUID userId = getUserIdByUuid(headers);
@@ -287,7 +316,7 @@ public class Controller {
     }
 
     @GetMapping("/totalamount")
-    public ResponseEntity<?> getRelativeByAmount(@RequestParam(required = true) GettingType type,
+    public ResponseEntity<?> getRelativeByAmount(@RequestParam(value = "TYPE", required = true) GettingType type,
                                                  @RequestHeader HttpHeaders headers){
 
 

@@ -1,5 +1,6 @@
 package org.api.events.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,10 @@ import java.util.List;
 @Setter
 @Getter
 @Entity(name = "user")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "relative", "presentations", "receivings"})
 public class User extends BaseModel {
+    private String firstName;
+    private String lastName;
     @Column(unique = true, nullable = false)
     private String userName;
     @Column(unique = true, nullable = false)
@@ -29,11 +33,16 @@ public class User extends BaseModel {
     }
 
 
-    @OneToMany(mappedBy =  "user")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy =  "user")
+    @JsonIgnoreProperties("user")
     private List<Relative> relative;
+
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
     private List<Presentation> presentation;
+
     @OneToMany(mappedBy = "user")
+    @JsonIgnoreProperties("user")
     private List<Receiving> receiving;
 
 }

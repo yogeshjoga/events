@@ -1,7 +1,10 @@
 # Event's Project
 
-* Tables
-* Design Sample API for save relaitive deatils
+* Monolithic architecture
+* Schema Design (Tables)
+* Class Design (Classes and entitys)
+* Cardinality
+*
 
 # ToDo
 
@@ -57,14 +60,11 @@
 2. Singup Through PhoneNumber
 3. Email and PhoneNumber verification (make email verfication only)
 
-
 # OTP
 
 ![image.png](assets/image.png)
 
 # Schema Design
-
-
 
 # Class design
 
@@ -75,12 +75,6 @@ log.info("\u001B[1;32m :: Testing relative :: \u001B[0m");
 ```
 
 ![image.png](assets/classdesign.png)
-
-
-
-
-
-
 
 Architected a Microservices based ECommerce Platform with functionalities like Login, Authorization, Product Catalog, Payment Gateway Integration, Service Discovery, Notification Service etc.
 Deployed whole Ecosystem on AWS Elastic Beanstalk leveraging RDS for Data Persistence, CloudWatch for efficient Logging and Monitoring

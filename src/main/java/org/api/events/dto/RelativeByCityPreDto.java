@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RelativeByCityPreDto {
     private String full_name;
-    private String userName;
-    private String email;
+    // private String userName;
+    //  private String email;
     private String phone;
     private double gold_in_gm;
     private double silver_in_gm;

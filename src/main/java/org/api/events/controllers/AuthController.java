@@ -38,6 +38,7 @@ public class AuthController {
 
     @Autowired
     private ObjectMapper objectMapper;
+
     @Autowired
     private BCryptPasswordEncoder encoder;
 

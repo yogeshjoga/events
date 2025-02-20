@@ -16,9 +16,16 @@ import java.util.UUID;
 @Repository
 public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 
+
     // write Custom query's
-    //@Query("SELECT * FROM relative WHERE firstName = :firstName and lastName = :lastName and city = :city");
-    Optional<Relative> findRelativeByFirstNameAndLastNameAndCityAndUserId(String firstName, String lastName, String city,@Param("userId") UUID userId);
+    @Query("SELECT r FROM relative r WHERE r.firstName = :firstName AND r.lastName = :lastName AND r.city = :city AND r.user.id = :userId")
+    Optional<Relative> findRelativeByFirstNameAndLastNameAndCityAndUserId(
+            @Param("firstName") String firstName,
+            @Param("lastName") String lastName,
+            @Param("city") String city,
+            @Param("userId") UUID userId
+    );
+
 
     List<String> findByCityAndUserId(String city,@Param("userId") UUID userId);
 
@@ -31,7 +38,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
     @Query("SELECT DISTINCT city FROM relative")
     List<String> findUniqueCitiesByCity(@Param("userId") UUID userId);
 
-    Relative findByEmail(String email);
+   // Relative findByEmail(String email);
 
     List<Receiving> findAllByUserId(UUID userId);
 
@@ -48,7 +55,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
      * @return
      */
     @Query("SELECT new org.api.events.dto.RelativeByCityPreDto(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.userName, r.email, r.phone, " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, " +
             "p.gold_in_gm, p.silver_in_gm, p.amount, p.objects) " +
             "FROM relative  r " +
             "JOIN r.presentations p " +
@@ -57,39 +64,39 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 
 
     @Query("SELECT new org.api.events.dto.GiftsFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, COUNT(p)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, COUNT(p)) " +
             "FROM relative r " +
             "JOIN r.presentations p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName, r.phone")
     List<GiftsFromRelatives> findGiftsFromRelativesPresentations(@Param("userId") UUID userId);
 
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.gold_in_gm)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.gold_in_gm)) " +
             "FROM relative r " +
             "JOIN r.presentations p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName, r.phone")
     List<GoldFromRelatives> findGoldFromRelativesPresentations(@Param("userId") UUID userId);
 
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.silver_in_gm)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.silver_in_gm)) " +
             "FROM relative r " +
             "JOIN r.presentations p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName, r.phone")
     List<SilverFromRelatives> findSilverFromRelativesPresentations(@Param("userId") UUID userId);
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.amount)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.amount)) " +
             "FROM relative r " +
             "JOIN r.presentations p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName,  r.phone")
     List<AmountFromRelatives> findAmountFromRelativesPresentations(@Param("userId") UUID userId);
 
     // Receiving
 
     @Query("SELECT new org.api.events.dto.RelativeByCityPreDto(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.userName, r.email, r.phone, " +
+            "CONCAT(r.firstName, ' ', r.lastName),  r.phone, " +
             "p.gold_in_gm, p.silver_in_gm, p.amount, p.objects) " +
             "FROM relative  r " +
             "JOIN r.receivings p " +
@@ -98,33 +105,33 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 
 
     @Query("SELECT new org.api.events.dto.GiftsFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, COUNT(p)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, COUNT(p)) " +
             "FROM relative r " +
             "JOIN r.receivings p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName,  r.phone")
     List<GiftsFromRelatives> findGiftsFromRelativesReceiving(@Param("userId") UUID userId);
 
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.gold_in_gm)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.gold_in_gm)) " +
             "FROM relative r " +
             "JOIN r.receivings p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName,  r.phone")
     List<GoldFromRelatives> findGoldFromRelativesReceiving(@Param("userId") UUID userId);
 
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.silver_in_gm)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.silver_in_gm)) " +
             "FROM relative r " +
             "JOIN r.receivings p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName, r.phone")
     List<SilverFromRelatives> findSilverFromRelativesReceiving(@Param("userId") UUID userId);
 
     @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
-            "CONCAT(r.firstName, ' ', r.lastName), r.email, r.phone, SUM(p.amount)) " +
+            "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.amount)) " +
             "FROM relative r " +
             "JOIN r.receivings p " +
-            "GROUP BY r.firstName, r.lastName, r.email, r.phone")
+            "GROUP BY r.firstName, r.lastName, r.phone")
     List<AmountFromRelatives> findAmountFromRelativesReceiving(@Param("userId") UUID userId);
 
 
@@ -134,7 +141,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
      *                              presenation insert
      *                              rece insert
      *                              querying
-     *
+     `*
      *              user -> pre/rec
      *                      user city vizag presentation
      *                       userid and city

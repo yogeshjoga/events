@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class GoldFromRelatives {
     private String full_name;
-    private String email;
+   // private String email;
     private String phone;
     private double total_gold_in_gm;
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
 @Repository
 public interface UserRepo extends JpaRepository<User, UUID> {
 
-    OTP findByRelativeEmail(String relativeEmail);
+  //  OTP findByRelativeEmail(String relativeEmail);
 
     Optional<User> findByEmail(String email);
 }

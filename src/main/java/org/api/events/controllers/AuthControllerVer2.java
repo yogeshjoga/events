@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import java.util.UUID;
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
@@ -36,6 +35,7 @@ public class AuthControllerVer2 {
 
     @PostMapping("/signup")
     @Operation(summary = "This is Post method for new User SignUp",
+            tags = {"API Documentation", "Testing Completed"},
             description= "<h2> This is the SignUp api for new User creation </h2>" +
                     "<p>Require parameters <ul><li>userName</li>" +
                     "<li>password </li> </ul></p>")
