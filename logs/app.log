@@ -4447,3 +4447,61 @@ java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'RuchiThaRuch
 2025-02-20 13:59:00,152 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
 2025-02-20 13:59:00,154 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
 2025-02-20 13:59:00,166 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
+2025-02-20 14:00:50,488 : org.api.events.controllers.TestTestController : INFO --> Starting TestTestController using Java 21.0.6 with PID 16816 (started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-20 14:00:50,489 : org.api.events.controllers.TestTestController : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-20 14:00:51,005 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-20 14:00:51,247 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-20 14:00:51,342 : org.springframework.boot.test.mock.web.SpringBootMockServletContext : INFO --> Initializing Spring TestDispatcherServlet '' : log : 
+2025-02-20 14:00:51,343 : org.springframework.test.web.servlet.TestDispatcherServlet : INFO --> Initializing Servlet '' : initServletBean : 
+2025-02-20 14:00:51,344 : org.springframework.test.web.servlet.TestDispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
+2025-02-20 14:00:51,363 : org.api.events.controllers.TestTestController : INFO --> Started TestTestController in 1.089 seconds (process running for 1.705) : logStarted : 
+2025-02-20 14:00:51,936 : org.springframework.test.context.support.AnnotationConfigContextLoaderUtils : INFO --> Could not detect default configuration classes for test class [org.api.events.controllers.TestUserController]: TestUserController does not declare any static, non-private, non-final, nested classes annotated with @Configuration. : detectDefaultConfigurationClasses : 
+2025-02-20 14:00:51,947 : org.springframework.boot.test.context.SpringBootTestContextBootstrapper : INFO --> Found @SpringBootConfiguration org.api.events.EventsApplication for test class org.api.events.controllers.TestUserController : getOrFindConfigurationClasses : 
+2025-02-20 14:00:51,951 : org.springframework.boot.devtools.restart.RestartApplicationListener : INFO --> Restart disabled due to context in which it is running : onApplicationStartingEvent : 
+2025-02-20 14:00:51,974 : org.api.events.controllers.TestUserController : INFO --> Starting TestUserController using Java 21.0.6 with PID 16816 (started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-20 14:00:51,975 : org.api.events.controllers.TestUserController : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-20 14:00:52,324 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-20 14:00:52,400 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-20 14:00:52,416 : org.springframework.boot.test.mock.web.SpringBootMockServletContext : INFO --> Initializing Spring TestDispatcherServlet '' : log : 
+2025-02-20 14:00:52,417 : org.springframework.test.web.servlet.TestDispatcherServlet : INFO --> Initializing Servlet '' : initServletBean : 
+2025-02-20 14:00:52,418 : org.springframework.test.web.servlet.TestDispatcherServlet : INFO --> Completed initialization in 1 ms : initServletBean : 
+2025-02-20 14:00:52,424 : org.api.events.controllers.TestUserController : INFO --> Started TestUserController in 0.473 seconds (process running for 2.767) : logStarted : 
+2025-02-20 14:00:52,435 : org.api.events.controllers.TestUserController : INFO --> [1;31m :: USER CONTROLLER Testing API  jogayogeshedu@gmail.com  :: [0m : testUserControllerGetUserByEmail : 
+2025-02-20 14:00:52,542 : org.api.events.controllers.UserController : INFO --> [1;31m :: Testing API  jogayogeshedu@gmail.com  :: [0m : getCurrentUser : 
+2025-02-20 14:00:52,796 : org.springframework.test.context.support.AnnotationConfigContextLoaderUtils : INFO --> Could not detect default configuration classes for test class [org.api.events.EventsApplicationTests]: EventsApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration. : detectDefaultConfigurationClasses : 
+2025-02-20 14:00:52,808 : org.springframework.boot.test.context.SpringBootTestContextBootstrapper : INFO --> Found @SpringBootConfiguration org.api.events.EventsApplication for test class org.api.events.EventsApplicationTests : getOrFindConfigurationClasses : 
+2025-02-20 14:00:52,817 : org.springframework.boot.devtools.restart.RestartApplicationListener : INFO --> Restart disabled due to context in which it is running : onApplicationStartingEvent : 
+2025-02-20 14:00:52,836 : org.api.events.EventsApplicationTests : INFO --> Starting EventsApplicationTests using Java 21.0.6 with PID 16816 (started by yogeshjoga in D:\Github_projects\events) : logStarting : 
+2025-02-20 14:00:52,837 : org.api.events.EventsApplicationTests : INFO --> No active profile set, falling back to 1 default profile: "default" : logStartupProfileInfo : 
+2025-02-20 14:00:53,406 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Bootstrapping Spring Data JPA repositories in DEFAULT mode. : registerRepositoriesIn : 
+2025-02-20 14:00:53,486 : org.springframework.data.repository.config.RepositoryConfigurationDelegate : INFO --> Finished Spring Data repository scanning in 72 ms. Found 5 JPA repository interfaces. : registerRepositoriesIn : 
+2025-02-20 14:00:53,999 : org.hibernate.jpa.internal.util.LogHelper : INFO --> HHH000204: Processing PersistenceUnitInfo [name: default] : logPersistenceUnitInformation : 
+2025-02-20 14:00:54,117 : org.hibernate.Version : INFO --> HHH000412: Hibernate ORM core version 6.6.5.Final : logVersion : 
+2025-02-20 14:00:54,183 : org.hibernate.cache.internal.RegionFactoryInitiator : INFO --> HHH000026: Second-level cache disabled : initiateService : 
+2025-02-20 14:00:54,276 : org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo : INFO --> No LoadTimeWeaver setup: ignoring JPA class transformer : addTransformer : 
+2025-02-20 14:00:54,292 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Starting... : getConnection : 
+2025-02-20 14:00:54,498 : com.zaxxer.hikari.pool.HikariPool : INFO --> HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1dcf5f38 : checkFailFast : 
+2025-02-20 14:00:54,500 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Start completed. : getConnection : 
+2025-02-20 14:00:54,553 : org.hibernate.orm.connections.pooling : INFO --> HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.40
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown : initiateService : 
+2025-02-20 14:00:55,095 : org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator : INFO --> HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) : initiateService : 
+2025-02-20 14:00:55,150 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Initialized JPA EntityManagerFactory for persistence unit 'default' : buildNativeEntityManagerFactory : 
+2025-02-20 14:00:55,161 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating JavaMailSender --------------------------------- : getJavaMailSender : 
+2025-02-20 14:00:55,168 : org.api.events.config.EmailConfig : INFO --> ------------------------ Creating mail sender properties  --------------------------------- : getJavaMailSender : 
+2025-02-20 14:00:55,375 : org.springframework.data.jpa.repository.query.QueryEnhancerFactory : INFO --> Hibernate is in classpath; If applicable, HQL parser will be used. : <clinit> : 
+2025-02-20 14:00:56,067 : org.api.events.config.UtilConfig : INFO --> [1;32m :: Configuring BCrypt Password Encoder :: [0m : passwordEncoder : 
+2025-02-20 14:00:56,127 : org.api.events.config.UtilConfig : INFO --> [1;32m :: YOUR PASSWORD  $2a$10$MXiImNmjTlsdm4XNl8oD4.E3HhzAAxV9v/PshdPPlIU7nCdMC3pqO  :: [0m : passwordEncoder : 
+2025-02-20 14:00:56,224 : org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration : WARN --> spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning : openEntityManagerInViewInterceptor : 
+2025-02-20 14:00:56,230 : org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : INFO --> Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager : configure : 
+2025-02-20 14:00:56,231 : org.api.events.config.SecurityConfig : INFO --> ---------- Configuring SecurityFilterChain --------------- : configure : 
+2025-02-20 14:00:56,290 : org.springframework.validation.beanvalidation.OptionalValidatorFactoryBean : INFO --> Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath. : afterPropertiesSet : 
+2025-02-20 14:00:56,415 : org.api.events.EventsApplicationTests : INFO --> Started EventsApplicationTests in 3.599 seconds (process running for 6.757) : logStarted : 
+2025-02-20 14:00:56,437 : org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean : INFO --> Closing JPA EntityManagerFactory for persistence unit 'default' : destroy : 
+2025-02-20 14:00:56,438 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown initiated... : close : 
+2025-02-20 14:00:56,446 : com.zaxxer.hikari.HikariDataSource : INFO --> HikariPool-1 - Shutdown completed. : close : 
