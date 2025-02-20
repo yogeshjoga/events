@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://536c-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
 @RequestMapping("/user")
 @Tag(name = "USER CONTROLLER", description = "All user related apis ")
 public class UserController {

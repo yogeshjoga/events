@@ -31,9 +31,7 @@ public interface IRelativeService {
     List<SilverFromRelatives> getSilverFromRelativesReceiving(UUID userId);
 
 
-
-
-
+    Relative getRelativeByFullNameAndCity(String firstName, String lastName, String city, UUID userId);
 
     // testing
     List<AllCitysDto> getAllCitys();

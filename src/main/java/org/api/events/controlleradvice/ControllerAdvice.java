@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class ControllerAdvice {
+
     /**
      * <b>Set all 404 exceptions in this method</b>
      * @param e
@@ -19,6 +20,7 @@ public class ControllerAdvice {
             InvalidOTPException.class,
             InvalidOTPException.class,
             OTPExpairedException.class,
+            RelativeNotFoundException.class,
             UserNotFoundException.class})
     public ResponseEntity<String> notFound(Exception e) {
         return ResponseEntity.status(404).body(e.getMessage());

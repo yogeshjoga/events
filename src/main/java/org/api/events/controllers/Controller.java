@@ -9,11 +9,10 @@ import org.api.events.constents.Headers;
 import org.api.events.constents.TotalReceivedType;
 import org.api.events.dto.*;
 import org.api.events.exceptions.NotFoundException;
-import org.api.events.models.Presentation;
-import org.api.events.models.Receiving;
-import org.api.events.models.Relative;
-import org.api.events.models.User;
+import org.api.events.exceptions.RelativeNotFoundException;
+import org.api.events.models.*;
 import org.api.events.repo.RelativeRepo;
+import org.api.events.service.goldapi.IGoldSilverService;
 import org.api.events.service.presentationservice.IPresentationService;
 import org.api.events.service.receivingservice.ReceivingService;
 import org.api.events.service.relativeservice.IRelativeService;
@@ -29,13 +28,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://536c-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
 @RequestMapping("/")
 @Tag(name = "MAIN CONTROLLER FOR ALL BASIC INFO AND QUERYING", description = "All querying apis ")
 public class Controller {
@@ -65,6 +65,10 @@ public class Controller {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+
+    @Autowired
+    private IGoldSilverService goldSilverService;
 
 
     /**
@@ -234,17 +238,45 @@ public class Controller {
 
 
     /**
+     *
+     * @param headers
+     * @param firstName
+     * @param lastName
+     * @param city
+     * @return
+     */
+    @GetMapping("getrelativebyname")
+    public ResponseEntity<?> getRelativeByName(@RequestHeader (required = true)HttpHeaders headers,
+                                               @RequestParam (required = true, value = "firstName") String firstName,
+                                               @RequestParam (required = true, value = "lastName") String lastName,
+                                               @RequestParam(required = true, value = "city") String city) {
+        UUID userId = getUserIdByUuid(headers);
+        Relative relative = relativeService.getRelativeByFullNameAndCity(firstName,lastName,city,userId);
+        if(relative == null) {
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+        ResponseRelativeData relData = objectMapper.convertValue(relative, ResponseRelativeData.class);
+        return ResponseEntity.status(200).body(relData);
+    }
+
+
+    /**
      * <b>Testing was successfully working Now you can try these methods no need to use dto mappings and extra layers</b>
      * @return AllCityDTO
      */
-
     @GetMapping("/dto") // cityDTO
-    public ResponseEntity<?> testingDTOResponce(@RequestHeader HttpHeaders headers){
+    public ResponseEntity<?> testingDTOResponce(@RequestHeader(required = true) HttpHeaders headers){
         List<AllCitysDto> dto = relativeService.getAllCitys();
         return ResponseEntity.status(200).body(dto);
     }
 
-
+    /**
+     *
+     * @param city
+     * @param type
+     * @param headers
+     * @return
+     */
     @GetMapping("/getrelbycity")
     public ResponseEntity<?> getRelativesAndPresentationsByCity(@RequestParam(value = "CITY",
                                                                 required = true ) String city,
@@ -337,6 +369,34 @@ public class Controller {
 
 
     // test java
+
+
+
+
+
+
+
+    // Gold_Silver Rates
+
+    /**
+     *
+     * @return
+     */
+    @GetMapping("/getmetalprice")
+    public ResponseEntity<?> getMetalPrice(){
+        List<ResponceMetalRates> metalRates = new ArrayList<>();
+        // getting Gold rates
+        ResponceMetalRates response = objectMapper.convertValue( goldSilverService.getGoldRates(),
+                ResponceMetalRates.class);
+        // Getting Silver Rates
+        ResponceMetalRates response1 = objectMapper.convertValue( goldSilverService.getSilverRates(),
+                ResponceMetalRates.class);
+
+        metalRates.add(response);
+        metalRates.add(response1);
+        return ResponseEntity.status(200).body(metalRates);
+    }
+
 
 
 }

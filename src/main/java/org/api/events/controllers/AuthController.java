@@ -2,7 +2,6 @@ package org.api.events.controllers;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.api.events.constents.VerficationState;
@@ -17,15 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.util.UUID;
-
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/public")
-@CrossOrigin(origins = {"http://localhost:5173/","https://d7e0-103-184-87-59.ngrok-free.app"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://f011-103-184-87-57.ngrok-free.app"})
 @Tag(name = "Authentication Api's", description = "These all api's are from authController class")
 public class AuthController {
 

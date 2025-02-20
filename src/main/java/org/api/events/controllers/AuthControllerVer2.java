@@ -17,7 +17,7 @@ import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/api/auth/v2/")
-@CrossOrigin({"http://localhost:8081/register","http://localhost:5173/"})
+@CrossOrigin({"http://localhost:8081/register","https://536c-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
 @Tag(name = "THIS IS THE NEW VERSION API VERSION 2 AUTH CONTROLLER", description = "This is for " +
         "User based auth controller not a relative based its updated version")
 public class AuthControllerVer2 {

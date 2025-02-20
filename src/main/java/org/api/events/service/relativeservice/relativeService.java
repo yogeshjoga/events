@@ -136,4 +136,11 @@ public class relativeService implements IRelativeService {
         return relativeRepo.findSilverFromRelativesReceiving(userId);
     }
 
+
+    @Override
+   public Relative getRelativeByFullNameAndCity(String firstName, String lastName, String city, UUID userId){
+        return relativeRepo.findRelativeByFirstNameAndLastNameAndCityAndUserId(firstName,lastName,city,userId).orElse(null);
+   }
+
+
 }
