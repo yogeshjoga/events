@@ -14,6 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.net.CacheRequest;
+import java.util.Objects;
+
 @Service
 public class GoldSilverService implements IGoldSilverService {
 
@@ -45,15 +48,15 @@ public class GoldSilverService implements IGoldSilverService {
      * @return
      */
     @Override
-    public ResponseEntity<String> getGoldRateAPI() {
+    public ResponseEntity<GoldRates> getGoldRateAPI() {
         headers.set("x-access-token", ACCESS_TOKEN);
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<String> response = restTemplate.exchange(GOLD_URL, HttpMethod.GET, entity, String.class);
-        GoldRates goldRates = mapper.convertValue(response.getBody(), GoldRates.class);
+        ResponseEntity<GoldRates> response = restTemplate.exchange(GOLD_URL, HttpMethod.GET, entity, GoldRates.class);
+     //   GoldRates goldRates = mapper.convertValue(response.getBody(), GoldRates.class);
       //  goldRateRepo.deleteAll();
-        goldRateRepo.save(goldRates);
+        goldRateRepo.save(Objects.requireNonNull(response.getBody()));
 
-        return response;
+        return  response;
     }
 
 
@@ -62,34 +65,35 @@ public class GoldSilverService implements IGoldSilverService {
      * @return
      */
     @Override
-    public ResponseEntity<String> getSilverRateAPI() {
-        HttpHeaders headers = new HttpHeaders();
+    public ResponseEntity<SilverRates> getSilverRateAPI() {
         headers.set("x-access-token", ACCESS_TOKEN);
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        ResponseEntity<String> response = restTemplate.exchange(SILVER_URL, HttpMethod.GET, entity, String.class);
-        SilverRates silverRates = mapper.convertValue(response.getBody(), SilverRates.class);
+        ResponseEntity<SilverRates> response = restTemplate.exchange(SILVER_URL, HttpMethod.GET, entity, SilverRates.class);
+      //  SilverRates silverRates = mapper.convertValue(response.getBody(), SilverRates.class);
        // silverRateRepo.deleteAll();
-        silverRateRepo.save(silverRates);
+        silverRateRepo.save(Objects.requireNonNull(response.getBody()));
+
         return response;
     }
 
    // "XAU" GOLD
     @Override
     public final GoldRates getGoldRates() {
-        if(goldRateRepo.findAll().isEmpty()) {
-            getGoldRateAPI();
-        }
+//        if(goldRateRepo.findAll().isEmpty()) {
+//            getGoldRateAPI();
+//        }
         return goldRateRepo.findAll().get(0);
     }
 
     // "XAG" SILVER
     @Override
     public final SilverRates getSilverRates() {
-        if(goldRateRepo.findAll().isEmpty()) {
-            getSilverRateAPI();
-        }
+//        if(silverRateRepo.findAll().isEmpty()) {
+//            getSilverRateAPI();
+//        }
         return silverRateRepo.findAll().get(0);
     }
+
 
 }
 

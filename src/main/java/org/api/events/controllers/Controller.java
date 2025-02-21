@@ -35,7 +35,7 @@ import java.util.UUID;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://536c-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin(origins = {"http://localhost:5173/","https://ef14-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
 @RequestMapping("/")
 @Tag(name = "MAIN CONTROLLER FOR ALL BASIC INFO AND QUERYING", description = "All querying apis ")
 public class Controller {
@@ -199,10 +199,10 @@ public class Controller {
      * @return
      */
     @GetMapping("/getallcity")
-    public ResponseEntity<List<String>> getAllCity(@RequestHeader HttpHeaders headers) {
+    public ResponseEntity<?> getAllCity(@RequestHeader HttpHeaders headers) {
         UUID userId = getUserIdByUuid(headers);
-        List<String> listCitys = relativeService.getAllUniqueCitys(userId);
-        return ResponseEntity.status(200).body(listCitys);
+     //   List<String> listCitys = relativeService.getAllUniqueCitys(userId);getAllCitys
+        return ResponseEntity.status(200).body(relativeService.getAllCitys());
     }
 
     // total gold silver amount sum not count
@@ -383,7 +383,7 @@ public class Controller {
      * @return
      */
     @GetMapping("/getmetalprice")
-    public ResponseEntity<?> getMetalPrice(){
+    public ResponseEntity<List<ResponceMetalRates>> getMetalPrice(){
         List<ResponceMetalRates> metalRates = new ArrayList<>();
         // getting Gold rates
         ResponceMetalRates response = objectMapper.convertValue( goldSilverService.getGoldRates(),

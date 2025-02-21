@@ -10,5 +10,5 @@ import org.api.events.constents.TotalReceivedType;
 public class TotalReceived {
     private Double Received_gm_or_INR;
     private TotalReceivedType type;
-    private GettingType gettingType;
+  //  private GettingType gettingType;
 }

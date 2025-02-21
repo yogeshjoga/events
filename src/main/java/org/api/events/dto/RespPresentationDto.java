@@ -14,8 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 @Component
 public class RespPresentationDto {
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
+    // private LocalDateTime createdDate;
+  //  private LocalDateTime updatedDate;
     private double amount;
     private double gold;
     private double silver;

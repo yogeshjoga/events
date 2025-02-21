@@ -5,8 +5,8 @@ import org.api.events.models.SilverRates;
 import org.springframework.http.ResponseEntity;
 
 public interface IGoldSilverService {
-    ResponseEntity<String> getGoldRateAPI();
-    ResponseEntity<String> getSilverRateAPI();
+    ResponseEntity<GoldRates> getGoldRateAPI();
+    ResponseEntity<SilverRates> getSilverRateAPI();
     GoldRates getGoldRates();
     SilverRates getSilverRates();
 }

@@ -8,8 +8,10 @@ import org.api.events.exceptions.InvalidOTPException;
 import org.api.events.exceptions.OTPExpairedException;
 import org.api.events.models.OTP;
 import org.api.events.models.Relative;
+import org.api.events.models.User;
 import org.api.events.repo.OTPRepo;
 import org.api.events.repo.RelativeRepo;
+import org.api.events.repo.UserRepo;
 import org.api.events.utils.EmailUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +20,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 @Service
 public class EmailService implements IEmailService {
@@ -37,8 +38,12 @@ public class EmailService implements IEmailService {
 
 
     private static final String subject = "Verification Email OTP FROM CHADIVIMPULU";
+
     @Autowired
     private RelativeRepo relativeRepo;
+
+    @Autowired
+    private UserRepo userRepo;
 
 
     @Override
@@ -84,9 +89,8 @@ public class EmailService implements IEmailService {
     @Override
     public VerficationState verifyOTP(String email, String otp) {
 
-        //OTP newOTP = otpRepo.findByRelativeEmail(email);
-        OTP newOTP= null;
-       Relative relative = null; //relativeRepo.findByEmail(email);
+        OTP newOTP = otpRepo.findByUserEmail(email);
+        User user = userRepo.findByEmail(email).orElse(null);
        if (newOTP == null) {
            throw new EmailNotFoundException("Please check your email... or Verify the Email");
        }
@@ -98,13 +102,10 @@ public class EmailService implements IEmailService {
            throw new InvalidOTPException("Please Enter Valid OTP");
        }else{
            otpRepo.delete(newOTP);
-          relative.setState(VerficationState.VERFICATION_COMPLETED);
-           // Updating the relative verification status
-           Relative respRel =null; //relativeRepo.findByEmail(email);
-           respRel.setState(VerficationState.VERFICATION_COMPLETED);
-           relativeRepo.save(respRel);
-           //relativeRepo.save(relative);
-           return relative.getState();
+           assert user != null;
+           user.setState(VerficationState.VERFICATION_COMPLETED);
+           userRepo.save(user);
+           return user.getState();
        }
 
     }

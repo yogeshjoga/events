@@ -13,6 +13,6 @@ public class SortingDTO {
     private String name;
     private String fistName;
     private String lastName;
-    private LocalDateTime createdDate;
-    private LocalDateTime modifiedDate;
+   // private LocalDateTime createdDate;
+   // private LocalDateTime modifiedDate;
 }

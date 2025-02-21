@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-// @AllArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor
 public class GoldRates extends BaseModel{
 

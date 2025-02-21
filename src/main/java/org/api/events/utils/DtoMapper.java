@@ -61,8 +61,8 @@ public class DtoMapper implements IDtoMapper {
             respDto.setGold(presentation.getGold_in_gm());
             respDto.setSilver(presentation.getSilver_in_gm());
             respDto.setObject(presentation.getObjects());
-            respDto.setCreatedDate(presentation.getCreated());
-            respDto.setUpdatedDate(presentation.getUpdated());
+          //  respDto.setCreatedDate(presentation.getCreated());
+          //  respDto.setUpdatedDate(presentation.getUpdated());
             respDtos.add(respDto);
         }
         log.info("\u001B[1;32m :: LIST OF PRESENTATIONS TO RESPONCE_PRESENTATION_DTO CREATED :: \u001B[0m");
@@ -79,8 +79,8 @@ public class DtoMapper implements IDtoMapper {
             respDto.setGold(receiving.getGold_in_gm());
             respDto.setSilver(receiving.getSilver_in_gm());
             respDto.setObject(receiving.getObjects());
-            respDto.setCreatedDate(receiving.getCreated());
-            respDto.setUpdatedDate(receiving.getUpdated());
+         //   respDto.setCreatedDate(receiving.getCreated());
+       //     respDto.setUpdatedDate(receiving.getUpdated());
             respDtos.add(respDto);
         }
         log.info("\u001B[1;32m :: LIST OF RECIVING TO RESPONCE_RECIVING_DTO CREATED :: \u001B[0m");

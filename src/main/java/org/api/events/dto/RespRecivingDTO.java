@@ -7,8 +7,8 @@ import java.util.Date;
 
 @Data
 public class RespRecivingDTO {
-    private LocalDateTime createdDate;
-    private LocalDateTime updatedDate;
+   // private LocalDateTime createdDate;
+   // private LocalDateTime updatedDate;
     private double amount;
     private double gold;
     private double silver;
