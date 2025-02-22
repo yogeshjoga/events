@@ -4,6 +4,13 @@
 * Schema Design (Tables)
 * Class Design (Classes and entitys)
 * Cardinality
+
+
+
+# Links and End-Points
+
+* [Swagger](http://localhost:8080/swagger-ui/index.html#/)
+* [JavaDocumentation](http://localhost:8080/documentation/index.html)
 *
 
 # ToDo

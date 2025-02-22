@@ -35,8 +35,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
-
         <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -57,10 +55,6 @@
             <artifactId>javafx-base</artifactId>
             <version>25-ea+2</version>
         </dependency>
-
-
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -120,7 +114,6 @@
             <optional>true</optional>
         </dependency>
 
-
         <!-- Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -132,8 +125,6 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-
 
         <!-- Junit for basic testing -->
         <dependency>
@@ -171,7 +162,20 @@
                     </excludes>
                 </configuration>
             </plugin>
-        </plugins>
-    </build>
+            <!-- java documentation -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+    </plugins>
+</build>
 
 </project>
