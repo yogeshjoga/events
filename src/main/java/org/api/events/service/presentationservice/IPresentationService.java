@@ -1,6 +1,7 @@
 package org.api.events.service.presentationservice;
 
 
+import org.api.events.dto.TopFiveRelatives;
 import org.api.events.models.Presentation;
 
 import java.util.List;
@@ -12,4 +13,9 @@ public interface IPresentationService {
     Double getTotalGold(UUID userId);
     Double getTotalAmount(UUID userId);
     Double getTotalSliver(UUID userId);
+
+
+    // charts
+    List<TopFiveRelatives> getGoldWithNameTopFiveRelatives(UUID userId);
+    List<TopFiveRelatives> getSilverWithNameTopFiveRelatives(UUID userId);
 }

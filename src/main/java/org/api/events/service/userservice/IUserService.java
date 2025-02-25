@@ -10,4 +10,6 @@ public interface IUserService {
     RelativeResponceDto signUp(SignUpDTO dto);
     User getUserByEmail(String email);
     User getUserById(UUID userId);
+
+    User loginUser(String email, String password);
 }

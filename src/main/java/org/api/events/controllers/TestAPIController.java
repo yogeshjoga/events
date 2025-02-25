@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/test")
-@CrossOrigin(origins = {"http://localhost:5173/","https://ef14-103-184-87-57.ngrok-free.app"})
+@CrossOrigin(origins = {"http://localhost:5173/",
+        "${ngrok_url}"})
 @Tag(name = "THIS IS THE TESTING REST CONTROLLER", description = "THIS IS FOR ONLY TESTING")
 public class TestAPIController {
 

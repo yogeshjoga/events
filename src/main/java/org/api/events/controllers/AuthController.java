@@ -20,7 +20,7 @@ import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/public")
-@CrossOrigin(origins = {"http://localhost:5173/","https://ef14-103-184-87-57.ngrok-free.app"})
+@CrossOrigin(origins = {"${front_end_url}","${ngrok_url}"})
 @Tag(name = "Authentication Api's", description = "These all api's are from authController class")
 public class AuthController {
 

@@ -3,6 +3,7 @@ package org.api.events.controllers;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.api.events.constents.VerficationState;
+import org.api.events.dto.LoginDTO;
 import org.api.events.dto.OTPdto;
 import org.api.events.dto.RelativeResponceDto;
 import org.api.events.dto.SignUpDTO;
@@ -17,7 +18,7 @@ import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
 @RestController
 @RequestMapping("/api/auth/v2/")
-@CrossOrigin({"http://localhost:8081/register","https://536c-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin({"${front_end_url}","${ngrok_url}"})
 @Tag(name = "THIS IS THE NEW VERSION API VERSION 2 AUTH CONTROLLER", description = "This is for " +
         "User based auth controller not a relative based its updated version")
 public class AuthControllerVer2 {
@@ -52,6 +53,12 @@ public class AuthControllerVer2 {
             return ResponseEntity.ok("OTP verified");
         }
         return ResponseEntity.status(404).body("Wrong OTP please try again");
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO){
+        userService.loginUser(loginDTO.getEmail(), loginDTO.getPassword());
+        return ResponseEntity.ok("Login successful");
     }
 
 }

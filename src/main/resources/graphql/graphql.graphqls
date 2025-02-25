@@ -1,0 +1,49 @@
+# Relative Object variables which are showing into output
+# DTO 1
+type Relative1{
+    firstName : String
+    lastName  : String
+    city      : String
+    address   : String
+}
+
+
+# Input DTO
+type RelativeInput{
+    firstName : String
+    lastName : String
+}
+
+
+# Object name not needed, its like a DTO type just return  that Dto
+
+# this DTO2
+type Relative143{
+    firstName : String
+    lastName  : String
+}
+
+
+# Object Gold and Silver Type
+type Gold_Silver{
+    timestamp : Int
+    metal : String
+    price_gram_24k : Float
+}
+
+
+# Querying
+type Query{
+    getAllRelatives : [Relative143]
+    getGoldRates: Gold_Silver
+    getSilverRates: Gold_Silver
+}
+
+
+# Mutation
+type Mutation{
+    postRelative : Relative1
+}
+
+
+

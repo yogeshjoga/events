@@ -7,6 +7,7 @@ import org.api.events.dto.SignUpDTO;
 import org.api.events.exceptions.EmailAlreadyExisted;
 import org.api.events.exceptions.EmailNotFoundException;
 import org.api.events.exceptions.UserNotFoundException;
+import org.api.events.exceptions.WrongPasswordException;
 import org.api.events.models.User;
 import org.api.events.repo.UserRepo;
 import org.api.events.service.emailservice.FIEmailService2;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -34,6 +36,7 @@ public class UserService implements IUserService {
 
     @Autowired
     private FIEmailService2 emailService;
+
 
 
 
@@ -72,5 +75,20 @@ public class UserService implements IUserService {
     @Override
     public User getUserById(UUID userId){
         return userRepo.findById(userId).get();
+    }
+
+    @Override
+    public User loginUser(String email, String password){
+        return userRepo.findByEmail(email)
+                .map(user -> {
+                    if (bCryptPasswordEncoder.matches(password, user.getPassword())) {
+                       return user;
+                    } else {
+                        throw new WrongPasswordException("Invalid password Please Re-Enter Password");
+                    }
+                })
+                .orElseThrow(() -> new UserNotFoundException("User not found... Please check your email id or re-enter"));
+
+
     }
 }

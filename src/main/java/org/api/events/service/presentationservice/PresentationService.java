@@ -1,6 +1,7 @@
 package org.api.events.service.presentationservice;
 
 
+import org.api.events.dto.TopFiveRelatives;
 import org.api.events.models.Presentation;
 import org.api.events.repo.PresentationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,16 @@ public class PresentationService implements IPresentationService {
     @Override
     public Double getTotalAmount(UUID userId){
         return presentationRepo.findTotalAmount(userId);
+    }
+
+
+    @Override
+    public List<TopFiveRelatives> getGoldWithNameTopFiveRelatives(UUID userId){
+        return presentationRepo.findTopFiveRelativesByUserIdGold(userId);
+    }
+
+    @Override
+    public List<TopFiveRelatives> getSilverWithNameTopFiveRelatives(UUID userId){
+        return presentationRepo.findTopFiveRelativesByUserIdGold(userId);
     }
 }

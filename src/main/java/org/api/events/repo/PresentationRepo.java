@@ -1,5 +1,6 @@
 package org.api.events.repo;
 
+import org.api.events.dto.TopFiveRelatives;
 import org.api.events.models.Presentation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,5 +21,32 @@ public interface PresentationRepo extends JpaRepository<Presentation, UUID> {
 
 
     List<Presentation> findAllByUserId(@Param("userId") UUID userId);
+
+    // username from user Table
+    // gold from presentation Table
+    // filter is top five -> simply use Rank or order by gold limit 5
+//    @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
+//            "CONCAT(r.firstName, ' ', r.lastName)"+
+//            "p.gold_in_gm" +
+//            "FROM relative  r " +
+//            "JOIN r.presentations p " +
+//            "Order by p.gold_in_gm asc limit 5")
+    @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
+            "CONCAT(r.firstName, ' ', r.lastName), " +
+            "p.gold_in_gm) " +
+            "FROM relative r " +
+            "JOIN r.presentations p " +
+            "ORDER BY p.gold_in_gm DESC limit 5")
+    List<TopFiveRelatives> findTopFiveRelativesByUserIdGold(@Param("userId") UUID userId);
+
+
+
+    @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
+            "CONCAT(r.firstName, ' ', r.lastName), " +
+            "p.silver_in_gm) " +
+            "FROM relative r " +
+            "JOIN r.presentations p " +
+            "ORDER BY p.gold_in_gm DESC limit 5")
+    List<TopFiveRelatives> findTopFiveRelativesByUserIdSilver(@Param("userId") UUID userId);
 
 }

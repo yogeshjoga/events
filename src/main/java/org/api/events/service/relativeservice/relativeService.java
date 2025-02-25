@@ -28,6 +28,11 @@ public class relativeService implements IRelativeService {
 
 
 
+    @Override
+    public List<Relative> graphAllRelatives() {
+        return relativeRepo.findAll();
+    }
+
 
     @Override
     public List<Relative> getAllRelatives(UUID userId) {

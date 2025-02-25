@@ -1,5 +1,6 @@
 package org.api.events.repo;
 
+import org.api.events.dto.TopFiveRelatives;
 import org.api.events.models.Receiving;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,33 @@ public interface ReceivingRepo extends JpaRepository<Receiving, UUID> {
 
 
     List<Receiving> findAllByUserId(UUID userId);
+
+
+    /**
+     * Get Receiving Silver
+     * @param userId
+     * @return
+     */
+    @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
+            "CONCAT(r.firstName, ' ', r.lastName), " +
+            "p.silver_in_gm) " +
+            "FROM relative r " +
+            "JOIN r.receivings p " +
+            "ORDER BY p.gold_in_gm DESC limit 5")
+    List<TopFiveRelatives> findTopFiveRelativesByUserIdSilver(@Param("userId") UUID userId);
+
+
+    /**
+     * Get Receiving Gold
+     * @param userId
+     * @return
+     */
+    @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
+            "CONCAT(r.firstName, ' ', r.lastName), " +
+            "p.gold_in_gm) " +
+            "FROM relative r " +
+            "JOIN r.receivings p " +
+            "ORDER BY p.gold_in_gm DESC limit 5")
+    List<TopFiveRelatives> findTopFiveRelativesByUserIdGold(@Param("userId") UUID userId);
+
 }

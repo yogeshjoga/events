@@ -5,8 +5,6 @@
 * Class Design (Classes and entitys)
 * Cardinality
 
-
-
 # Links and End-Points
 
 * [Swagger](http://localhost:8080/swagger-ui/index.html#/)
@@ -60,6 +58,27 @@
     List<AllCitysDto> findAllByCity();
 # Above Query Return the Dto type, By filtering Dto constructor params with absoulte path
 ```
+
+# Rest api vs GraphQL
+
+#### While Developing REST Based Api for Querying (@GetMapping)
+
+* We need to create DTO's classes based on requirement
+* And converting that Output to DTO type by using 
+  * Object Mapper 
+  * Custom Mapper
+  * Constructor Native Query
+  * All needs to DTO Class
+  
+
+![image.png](assets/dtos.png)
+
+
+
+
+## Here we Implemented GraphQL for retrieving data based our convenience     
+
+![image.png](assets/GraphQLPostmanTest.png)
 
 # Auth
 

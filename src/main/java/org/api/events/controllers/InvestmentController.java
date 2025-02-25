@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://ef14-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin(origins = {"${front_end_url}","${ngrok_url}"})
 @RequestMapping("/api/v1/investment/")
 @Tag(name = "INVESTMENT CONTROLLER", description = "HELPING middle class people's financially")
 public class InvestmentController {

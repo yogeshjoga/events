@@ -1,5 +1,6 @@
 package org.api.events.service.receivingservice;
 
+import org.api.events.dto.TopFiveRelatives;
 import org.api.events.models.Receiving;
 import org.springframework.data.repository.query.Param;
 
@@ -13,4 +14,8 @@ public interface IReceivingService {
     Double getTotalGold(@Param("userId") UUID userId);
     Double getTotalAmount(@Param("userId") UUID userId);
     Double getTotalSliver(@Param("userId") UUID userId);
+
+
+    List<TopFiveRelatives> getSilverWithNameTopFiveRelatives(UUID userId);
+    List<TopFiveRelatives> getGoldWithNameTopFiveRelatives(UUID userId);
 }

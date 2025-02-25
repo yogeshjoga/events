@@ -35,7 +35,7 @@ import java.util.UUID;
 
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173/","https://ef14-103-184-87-57.ngrok-free.app","http://localhost:5173/"})
+@CrossOrigin(origins = {"${front_end_url}","${ngrok_url}"})
 @RequestMapping("/")
 @Tag(name = "MAIN CONTROLLER FOR ALL BASIC INFO AND QUERYING", description = "All querying apis ")
 public class Controller {
@@ -365,6 +365,59 @@ public class Controller {
         return ResponseEntity.status(200).body(response);
     }
 
+
+
+    // charts apis
+
+    @GetMapping("/topfivePreGold")
+    public ResponseEntity<?> goldPreWithNameTopFiveRelatives(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+        List<TopFiveRelatives> response = presentationService.getGoldWithNameTopFiveRelatives(userId);
+        return ResponseEntity.status(200).body(response);
+    }
+
+    @GetMapping("/topfivePreSilver")
+    public ResponseEntity<?> silverPreWithNameTopFiveRelatives(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+        List<TopFiveRelatives> response = presentationService.getSilverWithNameTopFiveRelatives(userId);
+        return ResponseEntity.status(200).body(response);
+    }
+
+
+
+    @GetMapping("/topfiveRecGold")
+    public ResponseEntity<?> GoldRecWithNameTopFiveRelatives(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+        List<TopFiveRelatives> response = receivingService.getSilverWithNameTopFiveRelatives(userId);
+        return ResponseEntity.status(200).body(response);
+    }
+
+    @GetMapping("/topfiveRecSilver")
+    public ResponseEntity<?> silverRecWithNameTopFiveRelatives(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+        List<TopFiveRelatives> response = receivingService.getGoldWithNameTopFiveRelatives(userId);
+        return ResponseEntity.status(200).body(response);
+    }
+
+
+
+
+
+    // List of objects
+
+   // public ResponseEntity<?>
 
 
 

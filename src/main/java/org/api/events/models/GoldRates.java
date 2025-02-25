@@ -12,6 +12,10 @@ import lombok.*;
 @NoArgsConstructor
 public class GoldRates extends BaseModel{
 
+    /**
+     * Some dependency's not fitted so here annotated to all values to @JsonProperty
+     */
+
     @JsonProperty("timestamp")
     private long timestamp;
     @JsonProperty("metal")

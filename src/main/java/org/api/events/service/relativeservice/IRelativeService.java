@@ -36,4 +36,9 @@ public interface IRelativeService {
     // testing
     List<AllCitysDto> getAllCitys();
 
+
+
+    // for testing GraphQL implementation
+    List<Relative> graphAllRelatives();
+
 }
