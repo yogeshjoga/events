@@ -7,6 +7,7 @@ import org.api.events.dto.LoginDTO;
 import org.api.events.dto.OTPdto;
 import org.api.events.dto.RelativeResponceDto;
 import org.api.events.dto.SignUpDTO;
+import org.api.events.models.User;
 import org.api.events.service.emailservice.IEmailService;
 import org.api.events.service.userservice.IUserService;
 import org.slf4j.Logger;
@@ -15,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
+
+
 
 @RestController
 @RequestMapping("/api/auth/v2/")
@@ -57,8 +60,17 @@ public class AuthControllerVer2 {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginDTO loginDTO){
-        userService.loginUser(loginDTO.getEmail(), loginDTO.getPassword());
-        return ResponseEntity.ok("Login successful");
+      User user = userService.loginUser(loginDTO.getEmail(), loginDTO.getPassword());
+      return ResponseEntity.ok(user);
+    }
+
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(){
+        // session and Jwt token removed from Session storage as well as token
+        // ---------------- Add your code Here ----------------
+        return ResponseEntity.status(200).body(null);
+        // As of now Logout developed through Frontend, Frontend removes all cookies and Sessions from Browser Cache or Cookie storage
     }
 
 }
