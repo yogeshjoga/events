@@ -30,10 +30,12 @@ public interface ReceivingRepo extends JpaRepository<Receiving, UUID> {
      */
     @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
             "CONCAT(r.firstName, ' ', r.lastName), " +
-            "p.silver_in_gm) " +
+            "re.silver_in_gm) " +
             "FROM relative r " +
-            "JOIN r.receivings p " +
-            "ORDER BY p.gold_in_gm DESC limit 5")
+            "JOIN r.user u " +
+            "JOIN receiving re ON re.user.id = u.id " +
+            "WHERE u.id = :userId " +
+            "ORDER BY re.silver_in_gm DESC limit 5")
     List<TopFiveRelatives> findTopFiveRelativesByUserIdSilver(@Param("userId") UUID userId);
 
 
@@ -44,10 +46,12 @@ public interface ReceivingRepo extends JpaRepository<Receiving, UUID> {
      */
     @Query("SELECT new org.api.events.dto.TopFiveRelatives(" +
             "CONCAT(r.firstName, ' ', r.lastName), " +
-            "p.gold_in_gm) " +
+            "re.gold_in_gm) " +
             "FROM relative r " +
-            "JOIN r.receivings p " +
-            "ORDER BY p.gold_in_gm DESC limit 5")
+            "JOIN r.user u " +
+            "JOIN receiving re ON re.user.id = u.id " +
+            "WHERE u.id = :userId " +
+            "ORDER BY re.gold_in_gm DESC limit 5")
     List<TopFiveRelatives> findTopFiveRelativesByUserIdGold(@Param("userId") UUID userId);
 
 }

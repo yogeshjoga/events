@@ -148,4 +148,12 @@ public class relativeService implements IRelativeService {
    }
 
 
+
+   public Double getTotalSilverRelativeRecivings(UUID userId){
+      //  return relativeRepo.findByGoldReciving(userId);
+       return null;
+   }
+
+
+
 }

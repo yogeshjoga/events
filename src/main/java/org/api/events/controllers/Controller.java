@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Null;
 import org.api.events.constents.GettingType;
 import org.api.events.constents.Headers;
 import org.api.events.constents.TotalReceivedType;
+import org.api.events.constents.TypeOfPresentation;
 import org.api.events.dto.*;
 import org.api.events.exceptions.NotFoundException;
 import org.api.events.exceptions.RelativeNotFoundException;
@@ -94,7 +95,7 @@ public class Controller {
      * @return
      */
     @PostMapping("createPre")
-    @Operation(summary = "THIS IS CRATING A NEW PRESENTATION",
+    @Operation(summary = "THIS IS CRATING A NEW PRESENTATION <h1>This api Deprecated </h1>",
             tags = {"API Documentation", "Testing Completed"},
             description = "User input taken from PRESENTATION form and save into db")
     public ResponseEntity<?> creatingPre(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
@@ -127,9 +128,58 @@ public class Controller {
      * @param dto
      * @return
      */
+    @PostMapping("/formapi")
+    @Operation(summary = "THIS IS CREATING A NEW RECEIVING",
+            tags ="<h1>This api Deprecated </h1>",
+            description = "User input capturing from user input form filling after save into db")
+    public ResponseEntity<?> creatingRec(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        User user = userService.getUserById(userId);
+        TypeOfPresentation type = dto.getTypeOfPresentation();
+
+        Optional<Relative> relative1 =  relativeService.getRelative(dto.getFirstName(), dto.getLastName(), dto.getCity(),userId);
+
+        if(type.equals(TypeOfPresentation.PRESENTATION)){
+            if(relative1.isEmpty()){
+                // create a new relative otherwise just add presentation
+                // and attach with relative id and user to presentation
+                Relative relative = dtoMapper.dtoToRelative(dto, user);
+                Presentation presentation = dtoMapper.dtoToPresentation(dto,user);
+                relativeService.saveRelative(relative);
+                presentation.setRelative(relative);
+                presentationService.savePresentation(presentation);
+                log.info("\u001B[1;31m :: Testing relative :: \u001B[0m");
+            }
+            log.info("\u001B[1;31m :: relative :: \u001B[0m");
+
+            Presentation presentation = dtoMapper.dtoToPresentation(dto,user);
+            // Lambda
+            relative1.ifPresent(presentation::setRelative);
+            presentationService.savePresentation(presentation);
+        }else if(type.equals(TypeOfPresentation.RECEIVING)){
+            if(relative1.isEmpty()){
+                // create a new relative otherwise just add presentation
+                // and attach with relative id and user to presentation
+                Relative relative = dtoMapper.dtoToRelative(dto, user);
+                Receiving receiving = dtoMapper.dtoToReceiving(dto,user,relative);
+                relativeService.saveRelative(relative);
+                receivingService.saveReceiving(receiving);
+                log.info("\u001B[1;31m :: Relative and Receiving saved relative :: \u001B[0m");
+            }else {
+                Receiving receiving = dtoMapper.dtoToReceiving(dto, user, relative1.get());
+                receivingService.saveReceiving(receiving);
+                log.info("\u001B[1;31m :: RECEIVING  SAVED INTO DATABASE :: \u001B[0m");
+            }
+        }
+        return ResponseEntity.status(201).body(dto);
+    }
+
+
+    // updated form api
+
     @PostMapping("/createRec")
     @Operation(summary = "THIS IS CREATING A NEW RECEIVING",description = "User input capturing from user input form filling after save into db")
-    public ResponseEntity<?> creatingRec(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
+    public ResponseEntity<?> formApiV2(@RequestBody Dto dto, @RequestHeader HttpHeaders headers){
         UUID userId = getUserIdByUuid(headers);
         User user = userService.getUserById(userId);
         Optional<Relative> relative1 =  relativeService.getRelative(dto.getFirstName(), dto.getLastName(), dto.getCity(),userId);
@@ -148,7 +198,6 @@ public class Controller {
         }
         return ResponseEntity.status(201).body(dto);
     }
-
 
 
 
@@ -411,6 +460,50 @@ public class Controller {
         return ResponseEntity.status(200).body(response);
     }
 
+    // Total Single values no arguments for Charts
+    @GetMapping("/total_gold_rec")
+    public ResponseEntity<?> totalGoldRec(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+       // List<GoldFromRelatives> response = relativeService.getGoldFromRelativesReceiving(userId);
+        double totalGold = receivingService.getTotalGold(userId);
+        return ResponseEntity.status(200).body(totalGold);
+    }
+
+    @GetMapping("/total_gold_pre")
+    public ResponseEntity<?> totalGoldPre(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+      // List<GoldFromRelatives> response = relativeService.getGoldFromRelativesPresenations(userId);
+        double totalGoldpre = presentationService.getTotalGold(userId);
+        return ResponseEntity.status(200).body(totalGoldpre);
+    }
+
+    @GetMapping("/total_silver_rec")
+    public ResponseEntity<?> totalSilverRec(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+     // List<SilverFromRelatives> response = relativeService.getSilverFromRelativesReceiving(userId);
+        double totalSilverRec =  receivingService.getTotalSliver(userId);
+        return ResponseEntity.status(200).body(totalSilverRec);
+    }
+
+    @GetMapping("/total_silver_pre")
+    public ResponseEntity<?> totalSilverPre(@RequestHeader(required = true)  HttpHeaders headers){
+        UUID userId = getUserIdByUuid(headers);
+        if(userId == null){
+            throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
+        }
+   // List<SilverFromRelatives> response = relativeService.getSilverFromRelativesPresenations(userId);
+       double totalSilverPre = presentationService.getTotalSliver(userId);
+        return ResponseEntity.status(200).body(totalSilverPre);
+    }
 
 
 
