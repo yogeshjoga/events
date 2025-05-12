@@ -98,7 +98,7 @@ public interface RelativeRepo  extends JpaRepository<Relative, UUID> {
 //            "FROM relative r " +
 //            "JOIN r.presentations p " +
 //            "GROUP BY r.firstName, r.lastName, r.phone")
-@Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
+        @Query("SELECT new org.api.events.dto.GoldFromRelatives(" +
         "CONCAT(r.firstName, ' ', r.lastName), r.phone, SUM(p.silver_in_gm)) " +
         "FROM relative r " +
         "JOIN r.presentations p ON r.user.id = :userId " +

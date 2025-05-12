@@ -1,7 +1,15 @@
- FROM openjdk:17
- EXPOSE 9090
- COPY target/DockerDemo_Dec2024-0.0.1-SNAPSHOT.jar app.jar
- ENTRYPOINT ["java","-jar","app.jar"]
+# FROM openjdk:17
+# EXPOSE 9090
+# COPY target/DockerDemo_Dec2024-0.0.1-SNAPSHOT.jar app.jar
+# ENTRYPOINT ["java","-jar","app.jar"]
+
+
+
+FROM openjdk:17-jdk-slim
+VOLUME /tmp
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
 
  #java -jar app.jar
 

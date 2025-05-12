@@ -29,7 +29,7 @@ public class PresentationService implements IPresentationService {
 
     @Override
     public Double getTotalGold(UUID userId){
-        return presentationRepo.findTotalGold_in_gm(userId);
+        return presentationRepo.findTotalGold_in_gmAndUserid(userId);
     }
 
     @Override

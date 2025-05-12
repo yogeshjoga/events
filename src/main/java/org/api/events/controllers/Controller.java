@@ -446,7 +446,7 @@ public class Controller {
         if(userId == null){
             throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
         }
-        List<TopFiveRelatives> response = receivingService.getSilverWithNameTopFiveRelatives(userId);
+        List<TopFiveRelatives> response = receivingService.getGoldWithNameTopFiveRelatives(userId);
         return ResponseEntity.status(200).body(response);
     }
 
@@ -456,7 +456,7 @@ public class Controller {
         if(userId == null){
             throw new RelativeNotFoundException("Relative not found.. Or else enter correct name, city");
         }
-        List<TopFiveRelatives> response = receivingService.getGoldWithNameTopFiveRelatives(userId);
+        List<TopFiveRelatives> response = receivingService.getSilverWithNameTopFiveRelatives(userId);
         return ResponseEntity.status(200).body(response);
     }
 
@@ -515,6 +515,8 @@ public class Controller {
 
 
     // test java
+
+
 
 
 

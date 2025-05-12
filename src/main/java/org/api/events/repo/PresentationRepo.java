@@ -63,4 +63,14 @@ public interface PresentationRepo extends JpaRepository<Presentation, UUID> {
             "ORDER BY p.gold_in_gm DESC limit 5")
     List<TopFiveRelatives> findTopFiveRelativesByUserIdSilver(@Param("userId") UUID userId);
 
+
+
+
+
+        @Query("SELECT SUM(r.gold_in_gm) FROM presentations r WHERE r.user.id = :userId")
+        Double findTotalGold_in_gmAndUserid(@Param("userId") UUID userId);
+
+    @Query("SELECT SUM(r.silver_in_gm) FROM receiving r WHERE r.user.id = :userId")
+    Double findTotalSilver_in_gmAndUserid(@Param("userId") UUID userId);
+
 }

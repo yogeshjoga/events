@@ -35,12 +35,13 @@ public class ReceivingService implements IReceivingService {
 
     @Override
     public Double getTotalGold(UUID userId){
-        return receivingRepo.findTotalGold_in_gm(userId);
+       // return receivingRepo.findTotalGold_in_gm(userId);
+       return receivingRepo.findTotalGold_in_gmAndUserid(userId);
     }
 
     @Override
     public Double getTotalSliver(UUID userId){
-        return receivingRepo.findTotalSilver_in_gm(userId);
+        return receivingRepo.findTotalSilver_in_gmAndUserid(userId);
     }
 
     @Override

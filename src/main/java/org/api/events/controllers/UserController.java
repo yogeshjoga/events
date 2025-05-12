@@ -7,8 +7,11 @@ import org.api.events.service.userservice.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {"${front_end_url}","${ngrok_url}"})
@@ -27,6 +30,17 @@ public class UserController {
        User user = userService.getUserByEmail(email);
        log.info("\u001B[1;31m :: Testing API  "+email +"  :: \u001B[0m");
        return ResponseEntity.ok(user);
+    }
+
+
+    /**
+     * <b>Let's do something new for get all users</b>
+     * @return
+     */
+    @GetMapping("/get_all_users")
+    public ResponseEntity<?> getAllUsers(){
+        List<User> users = userService.getAllUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
 

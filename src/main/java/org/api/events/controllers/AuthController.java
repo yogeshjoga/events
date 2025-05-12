@@ -18,6 +18,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import static org.api.events.constents.VerficationState.VERFICATION_COMPLETED;
 
+/**
+ * @author yogeshjoga
+ * <p>This is Auth controller version 1, now this is depericated</p>
+ */
+
 @RestController
 @RequestMapping("/public")
 @CrossOrigin(origins = {"${front_end_url}","${ngrok_url}"})
@@ -55,6 +60,7 @@ public class AuthController {
         VerficationState state = emialService.verifyOTP(dto.getEmail(), dto.getOtp());
         if(state.equals(VERFICATION_COMPLETED)){
             return ResponseEntity.ok("OTP verified");
+
         }
         return ResponseEntity.status(404).body("Wrong OTP please try again");
     }

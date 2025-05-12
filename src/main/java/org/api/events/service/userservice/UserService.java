@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -88,5 +90,11 @@ public class UserService implements IUserService {
                 .orElseThrow(() -> new UserNotFoundException("User not found... Please check your email id or re-enter"));
 
 
+    }
+
+
+    @Override
+    public List<User> getAllUsers(){
+        return  userRepo.findAll();
     }
 }

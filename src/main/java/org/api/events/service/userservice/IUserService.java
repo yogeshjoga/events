@@ -4,6 +4,7 @@ import org.api.events.dto.RelativeResponceDto;
 import org.api.events.dto.SignUpDTO;
 import org.api.events.models.User;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface IUserService {
@@ -12,4 +13,8 @@ public interface IUserService {
     User getUserById(UUID userId);
 
     User loginUser(String email, String password);
+
+
+    // Get all users for testing
+    List<User> getAllUsers();
 }

@@ -99,6 +99,7 @@ public class relativeService implements IRelativeService {
     public List<RelativeByCityPreDto> getRelativeByCityPresenations(String city, UUID userId){
         return relativeRepo.findByCityPresentations(city,userId);
     }
+
     @Override
     public List<RelativeByCityPreDto> getRelativeByCityReceiving(String city, UUID userId){
         return relativeRepo.findByCityReceiving(city, userId);
@@ -108,6 +109,7 @@ public class relativeService implements IRelativeService {
     public List<AmountFromRelatives> getAmountFromRelativesPresenations(UUID userId){
         return relativeRepo.findAmountFromRelativesPresentations(userId);
     }
+
     @Override
     public List<AmountFromRelatives> getAmountFromRelativesReceiving(UUID userId){
         return relativeRepo.findAmountFromRelativesReceiving(userId);
@@ -117,6 +119,7 @@ public class relativeService implements IRelativeService {
     public List<GiftsFromRelatives> getGiftsFromRelativesPresenations(UUID userId){
         return relativeRepo.findGiftsFromRelativesPresentations(userId);
     }
+
     @Override
     public List<GiftsFromRelatives> getGiftsFromRelativesReceiving(UUID userId){
         return relativeRepo.findGiftsFromRelativesReceiving(userId);
